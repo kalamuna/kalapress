@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/sample-faqs",
+  "title": "Kalapress - Sample block",
+  "description": "A sample to demonstrate script managemnt for ACF blocks with @wordpress/scripts",
+  "version": "0.1.0",
+  "category": "kalapress",
+  "icon": "editor-expand",
+  "keywords": [
+    "sample"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "sample-faqs.php"
+  },
+  "example": "true",
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "style": "file:./sample-faqs.css",
+  "editorScript": "file:./sample-faqs-editor.js",
+  "editorStyle": "file:./sample-faqs-editor.css",
+  "viewScript": "file:./sample-faqs.js"
+}

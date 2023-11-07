@@ -1,0 +1,75 @@
+
+.searchform--reveal {
+  background-color: color(grey-100);
+  display: flex;
+  padding: 0 0 0.25em 0;
+
+  // Search reveal toggle.
+  &__toggle {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    margin-right: 0.25em;  
+    cursor: pointer;
+
+    &:hover {
+      svg path {
+        filter: brightness(400%);
+      }
+    }
+  }
+  
+  .searchform__form {
+    gap: 0;
+
+    // General search input styles.
+    input {
+      font-size: var(--wp--preset--font-size--small-medium);
+      font-weight: var(--wp--custom--font-weight--normal);
+      font-family: inherit;
+      -webkit-appearance: none;
+      
+      // Search text input.
+      &[type="search"] {
+        max-width: 0;
+        border: none;
+        background: transparent;
+        border-radius: 0;
+        border-bottom: 1px solid var(--wp--preset--color--contrast);
+        opacity: 0;
+        padding: 0;
+        visibility: hidden;
+        transition: all 0.2s ease-out;
+        width: auto;
+      }
+      
+      // Search Button
+      &[type="submit"] {
+        background: transparent;
+        border: none;
+        color: inherit;
+        padding: 0;
+    
+        &:hover {
+          background: none !important;
+          border: none !important;
+          text-decoration: underline;
+          text-underline-offset: 0.35em;
+        }
+      }
+    }
+    // Expand search input upon Search reveal.
+    &.open {
+      input[type="search"] {
+        padding: 0 0.25em;
+        max-width: unset;
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.2s ease-in;
+      }
+    }
+  }
+}

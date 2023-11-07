@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/card",
+  "title": "Kalapress - Card",
+  "description": "Display a single Post or Page in a card block.",
+  "category": "kalapress",
+  "icon": "cover-image",
+  "keywords": [
+    "card",
+    "featured",
+    "post",
+    "page"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "card.php"
+  },
+  "example": "true",
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    }
+  }
+}

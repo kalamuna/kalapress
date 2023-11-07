@@ -1,0 +1,15 @@
+.social-links {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+
+	a {
+		width: 2rem;
+		height: auto;
+
+		&:hover {
+			filter: brightness(180%);
+		}
+	}
+}

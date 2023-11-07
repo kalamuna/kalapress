@@ -1,0 +1,61 @@
+
+.searchform--flyout {
+  background-color: color(grey-100);
+  display: flex;
+  padding: $space-30;
+
+  .searchform__form {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    width: 100%;
+
+    // General input styles.
+    input {
+      color: var(--wp--preset--color--contrast);
+      font-size: var(--wp-preset--font-size--medium);
+      font-weight: var(--wp--custom--font-weight--normal);
+      font-family: inherit;
+      -webkit-appearance: none;
+
+      // Search text input styles.
+      &[type="search"] {
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid var(--wp--preset--color--contrast);
+        padding: 0;
+        width: 100%;
+      }
+
+      // Search Submit Input styles.
+      &[type="submit"] {
+        background: transparent;
+        border: none;
+        color: var(--wp--preset--color--contrast);
+        font-weight: var(--wp--custom--font-weight--bold);
+        padding: $space-10;
+        cursor: pointer;
+    
+        &:hover {
+          color: var(--wp--preset--color--secondary);
+          background: none;
+        }
+      }
+    }
+
+    // Search Button styles.
+    // Use these styles if you're using an icon submit button.
+    button[type="submit"] {
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        svg path {
+          filter: brightness(400%);
+        }
+      }
+    }
+  }
+}

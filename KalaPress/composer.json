@@ -1,0 +1,34 @@
+{
+  "name": "kalamuna/kalapress",
+  "type": "wordpress-theme",
+  "keywords": [
+    "WordPress",
+    "Themes"
+  ],
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+    "wptrt/wpthemereview": "^0.2.1",
+    "php-parallel-lint/php-parallel-lint": "^1.2.0",
+    "wp-cli/i18n-command": "^2.2.5",
+    "squizlabs/php_codesniffer": "^3.7"
+  },
+  "scripts": {
+    "lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
+    "make-pot": "wp i18n make-pot . languages/_s.pot"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "KLPTheme\\": "./",
+      "KLPTheme\\Core\\": "Core/",
+      "KLPTheme\\Core\\Engine\\": "Core/Engine/",
+      "KLPTheme\\Core\\Util\\": "Core/Util/",
+      "KLPTheme\\Config\\": "inc/Config"
+    }
+  }
+}

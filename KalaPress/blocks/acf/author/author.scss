@@ -1,0 +1,45 @@
+.author-block {
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-top: var(--wp--preset--spacing--small);
+
+	@media screen and (min-width: 37.5em) {
+		flex-wrap: nowrap;
+	}
+
+	&__photo {
+		width: 12.5rem;
+		height: 12.5rem;
+		object-fit: cover;
+		margin-right: 2.375rem;
+		margin-bottom: 2.375rem;
+		border-radius: 100%;
+		filter: grayscale(1);
+	}
+
+	&__link {
+
+		/* removed @include underline-link; and relying on the theme. seems to work */
+
+		/* @TODO: investigate more to see how to address the complex mixins.  */
+
+		/* @include underline-link; */
+
+		position: relative;
+		font-size: var(--wp--preset--font-size--large);
+		font-weight: var(--wp--custom--font-weight--bold);
+
+		&:hover {
+			color: var(--wp--preset--color--primary);
+		}
+	}
+
+	&__title {
+		margin-top: 1rem;
+		font-size: var(--wp--preset--font-size--small);
+	}
+
+	&__excerpt {}
+}

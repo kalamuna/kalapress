@@ -1,0 +1,69 @@
+{
+    "key": "group_62fbd9bfcab36",
+    "title": "Block - Card Cover",
+    "fields": [
+        {
+            "key": "field_62fbd9bfcd780",
+            "label": "Featured Page or Post",
+            "name": "featured_item",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Select a page or post to display in this card.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post",
+                "page"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_63a49ce8804e7",
+            "label": "Custom Button Text",
+            "name": "featured_item_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Overrides the default \"Read more\" button text.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/card--cover"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1673474174
+}

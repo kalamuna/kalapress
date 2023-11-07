@@ -1,0 +1,90 @@
+.card {
+  background-color: var(--wp--preset--color--base);
+  margin-block-start: 0rem;
+  height: 100%;
+  position: relative;
+  box-shadow: var(--wp--custom--box-shadow--card);
+  transition: $default-transition;
+
+  &:hover {
+    box-shadow: var(--wp--custom--box-shadow--card-hover);
+  }
+
+  /* If there is a link around the card, remove its default styling. */
+  > a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  &__link {
+    background-image: none;
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: var(--wp--preset--color--contrast);
+    }
+  }
+
+  &__contents {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Add padding around the text area. */
+  &__text-content {
+    position: relative;
+    padding: var(--wp--preset--spacing--x-small);
+  }
+
+  /* Remove the default margin above the h3 . */
+  h3 {
+    margin-top: 0;
+  }
+
+  /* The meta data that contains info like category & date. */
+  &__meta {
+    color: var(--wp--preset--color--secondary);
+    font-size: var(--wp--preset--font-size--base);
+    font-weight: 400;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    margin: 0 0 0.4em;
+
+    a {
+      color: var(--wp--preset--color--secondary);
+    }
+
+    // If there are 2 items, add a divider between the content.
+    div:nth-child(even)::before {
+      content: "/";
+      margin: 0 0.5rem;
+    }
+
+  }
+
+  /* Center and crop the image within a container. */
+  &__media {
+    overflow: hidden;
+    margin-top: 0;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-position: center;
+      object-fit: cover;
+    }
+  }
+}
+
+  

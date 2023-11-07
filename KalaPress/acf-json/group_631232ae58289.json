@@ -1,0 +1,85 @@
+{
+    "key": "group_631232ae58289",
+    "title": "Page Details",
+    "fields": [
+        {
+            "key": "field_63bc62575281c",
+            "label": "Show Hero Image",
+            "name": "show_hero_image",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_63c863514d1ab",
+            "label": "Hero Heading",
+            "name": "hero_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "The page title is set to the Hero heading by default. Input a custom heading in this field to override that.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_631232b1fbd93",
+            "label": "Hero Subheading",
+            "name": "hero_subheading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "This text displays above the page title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1684507456
+}

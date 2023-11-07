@@ -1,0 +1,44 @@
+/*
+ * Addtoany widget.
+ *
+ * Widget is located on Single Posts.
+ */
+
+.single-post {
+
+  .addtoany_share_save_container {
+
+    // On larger screens, stick the icons to the left.
+    @media screen and (min-width: $l-break) {
+      position: sticky;
+      top: 12rem;
+      height: 0;
+      margin-left: -8rem;
+      max-width: fit-content;
+    }
+
+    .addtoany_header {
+      text-align: center;
+      font-weight: var(--wp--custom--font-weight--bold);
+    }
+
+    .a2a_kit {
+      display: flex;
+      justify-content: center;
+
+      // On larger screens, stack the icons vertically.
+      @media screen and (min-width: $l-break) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      a {
+        margin: 0;
+
+        @media screen and (min-width: $l-break) {
+          margin: 0.5rem 0;
+        }
+      }  
+    }
+  }
+}

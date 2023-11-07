@@ -1,0 +1,116 @@
+
+
+// ++++++++++ Media Elements ============================
+
+
+// ===== Media Types Shared
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+
+// ===== image Tags
+
+img {
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+
+  a & {
+    transform: rotate(0);
+    -webkit-backface-visibility: hidden;
+
+    &:hover {
+      opacity: .75;
+    }
+  }
+}
+
+// ===== Shared Alignment Styles
+
+.alignleft,
+.alignright,
+.aligncenter,
+iframe {
+  margin-block-end: 1.5rem;
+}
+
+// ===== Add space below images.
+figure.wp-block-image {
+  margin-block-end: 2rem;
+}
+
+
+// ===== Align Left
+
+.alignleft,
+iframe[align="left"] {
+  float: left;
+  margin-inline-end: 1.5rem;
+}
+
+
+// ===== Align Right
+
+.alignright,
+iframe[align="right"] {
+  float: right;
+  margin-inline-start: 2em;
+  margin-inline-end: 0;
+}
+
+
+// ===== Align Center
+
+.aligncenter,
+iframe[align="center"] {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ===== Iframes in their wrapping containers
+
+.iframe-container {
+  position: relative;
+  margin-bottom: rem(30);
+  width: 100%;
+
+  iframe {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    float: none;
+  }
+
+  .iframe-ratio-setter {
+    padding-top: 56.25%;
+  }
+}
+
+// ===== Make video embeds contained to a 16:9 container.
+.wp-block-embed.is-type-video {
+  margin: 1rem 0;
+  
+  .wp-block-embed__wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; 
+    margin: 0;
+  }
+  
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,54 @@
+/*
+ * Blockquote & Pullquote styles.
+ *
+ * Apply styles to the default blockquote and
+ * WordPress pullquote block.
+ */
+ 
+blockquote,
+.wp-block-pullquote blockquote {
+	color: var(--wp--preset--color--contrast);
+	margin: 1.25rem 0;
+	font-family: var(--wp--preset--font-family--secondary);
+	font-size: var(--wp--preset--font-size--medium);
+	font-style: italic;
+  padding-inline-start: 4rem;
+  position: relative;
+
+  &:before {
+    color: var(--wp--preset--color--primary);
+    font-family:  var(--wp--preset--font-family--primary);
+    display: block;
+    content: "\201C";
+    font-size: 6.25rem;
+    font-weight: 700;
+    position: absolute;
+    inset-inline-start: calc(-20px + 1rem);
+    top: -2.5rem;
+  }
+
+	p {
+		margin-block-end: 1rem;
+		line-height: rem(35);
+    color: var(--wp--preset--color--contrast);
+    font-family:  var(--wp--preset--font-family--secondary);
+    font-size: var(--wp--preset--font-size--medium);
+    font-style: italic;
+	}
+
+	small, cite {
+    display: block;
+		font-family: var(--wp--preset--font-family--primary);
+		font-size: var(--wp--preset--font-size--base);
+		font-style: normal;
+	}
+}
+
+/* Pullquotes */
+.wp-block-pullquote {
+  // Add a border and margin around the element.
+  border-top: 3px solid var(--wp--preset--color--primary);
+  border-bottom: 3px solid var(--wp--preset--color--primary);
+  margin: 1.5em 0;
+  padding: 0;
+}

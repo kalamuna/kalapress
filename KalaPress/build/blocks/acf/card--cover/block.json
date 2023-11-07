@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/card--cover",
+  "title": "Kalapress - Card Cover",
+  "description": "Display a single Post or Page in a cover card block.",
+  "category": "kalapress",
+  "icon": "cover-image",
+  "keywords": [
+    "card",
+    "featured"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "card--cover.php"
+  },
+  "example": "true",
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "style": "file:./card--cover.css",
+  "script": "file:./card--cover.js"
+}

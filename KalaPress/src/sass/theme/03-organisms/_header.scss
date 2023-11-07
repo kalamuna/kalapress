@@ -1,0 +1,126 @@
+#site-header-container,
+.site-header {
+  position: relative;
+  z-index: 9999;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    @include container;
+
+    @include breakpoint($l-break) {
+      align-items: flex-end;
+    }
+  }
+
+  &__logo {
+    padding: 0;
+    
+    &-image {
+      display: inline-block;
+    }
+
+    &-image--small {
+      display: none;
+    }
+
+    img {
+      max-width: 16em;
+      transition: max-width 0.2s ease-in-out;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+  }
+  
+  /* Styles for condensed header */
+  &.page-has-scrolled {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: color(grey-100);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: $default-transition;
+
+    .site-header__container {
+      align-items: center;
+    }
+    /* Hide the other header content in this state. */
+    .site-header__content {
+      display: none;
+    }
+
+    .menu-toggle__container {
+      display: flex;
+    }
+
+    .hamburger-nav-trigger__label {
+      // @mixin visually-hidden;
+    }
+    
+    /* Make the logo smaller */
+    .site-header__logo img {
+      max-width: 10em;
+    }
+
+    .site-header__logo-image {
+      display: none;
+    }
+
+    .site-header__logo-image--small {
+      display: inline-block;
+    }
+
+  }
+
+  // When the nav is open, add a box-shadow to the header.
+  &.open {
+    @media screen and (max-width: $l-break) {
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  /* Styles for condensed header on scroll */
+   @media screen and (max-width: $l-break) {
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 0.625rem 0;
+    background: color(grey-100);
+
+    /* Hide the other header content in this state. */
+    .site-header__content {
+      display: none;
+    }
+
+    .hamburger-nav-trigger__container {
+      display: flex;
+    }
+
+    /* Make the logo smaller */
+    .site-header__logo img {
+      max-width: 187px;
+    }
+
+    .site-header__logo-image {
+      display: none;
+    }
+
+    .site-header__logo-image--small {
+      display: inline-block;
+    }
+    
+  }
+} 

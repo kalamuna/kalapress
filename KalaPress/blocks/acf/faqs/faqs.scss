@@ -1,0 +1,57 @@
+.faqs {
+	margin-bottom: var(--wp--preset--spacing--small);
+
+	&__wrapper {}
+
+	details.faqs__item {
+
+		// Add a margin and borders around each accordion.
+		margin: 1em 0;
+		border-bottom: 1px solid color(grey-10);
+
+		// Add a little extra space after the content when open.
+		&[open] {
+			padding-bottom: 0.25em;
+		}
+
+		// Avoid double lines and space between adjacent accordions.
+		& + details {
+			margin-top: -1em;
+			border-top: 0;
+		}
+
+		// Style the clickable accordion title and arrow.
+		summary.faqs__question {
+			padding: 0.6em 0.75em;
+
+			// Undo that normalize sets the display to block, which hides the disclosure arrow.
+			display: list-item;
+			font-size: var(--wp--preset--font-size--medium);
+
+			// Make the marker smaller.
+			&::marker {
+				color: color(primary);
+				font-size: 0.8em;
+			}
+
+			// If a heading is used within the summary, keep it the same size and position it next to the arrow.
+			>* {
+				font-size: inherit;
+				display: inline;
+				vertical-align: middle;
+				margin-inline-start: 0.5em;
+			}
+
+			// Help indicate that the summary is clickable with a pointer.
+			cursor: pointer;
+		}
+
+		overflow: hidden;
+
+		// Indent the contents of the accordion.
+		>*:not(summary) {
+			margin-inline-start: calc(1em * 2);
+			margin-inline-end: 1em;
+		}
+	}
+}

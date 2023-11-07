@@ -1,0 +1,18 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-native-static {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+
+	.in-static {
+		background-color: #d3b0fc;
+		color: #fff;
+		margin-bottom: var(--wp--preset--spacing--large);
+	}
+}

@@ -1,0 +1,49 @@
+// ++++++++++ @spacing
+
+// these can be updated to suit the site
+// Detailed info here: https://kalamuna.atlassian.net/wiki/spaces/KALA/pages/2640347177/Spacing+System
+// Avoid using those values for `letter-spacing` `word-spacing` `radius`
+// `border-width` etc. Those needed to be defined separately.
+
+$base-space: 1rem;  //16px
+$space-00: calc($base-space / 4); //4px
+$space-10: calc($base-space / 2); //8px
+$space-20: calc($base-space);     //16px
+$space-25: calc($base-space * 1.5); //24px
+$space-30: calc($base-space * 2); //32px
+$space-40: calc($base-space * 4); //64px
+$space-50: calc($base-space * 6); //96px
+$space-60: calc($base-space * 8); //128px
+$space-70: calc($base-space *10); //160px
+$space-80: calc($base-space *12); //192px
+$space-90: calc($base-space *14); //224px
+$space-100: calc($base-space *16);//256px
+
+:root {
+    --space-00: #{$space-00}; //4px
+    --space-0:  #{$space-00}; //4px //To fix browser doesn't recognize 00
+    --space-10: #{$space-10}; //8px
+    --space-20: #{$space-20}; //16px
+    --space-25: #{$space-25}; //24px
+    --space-30: #{$space-30}; //32px
+    --space-40: #{$space-40}; //64px
+    --space-50: #{$space-50}; //96px
+    --space-60: #{$space-60}; //128px
+    --space-70: #{$space-70}; //160px
+    --space-80: #{$space-80}; //192px
+    --space-90: #{$space-90}; //224px
+    --space-100: #{$space-100};//256px
+}
+
+// @media screen(max-width:$m-break) {
+  // :root {
+    // If spaces need to be different from desktop, Add them here
+  // }
+// }
+
+// Helper function to support a simple function name
+// for fetching colors based on name or usage.
+// space(00);
+@function space($value) {
+    @return var(--space-#{$value});
+}

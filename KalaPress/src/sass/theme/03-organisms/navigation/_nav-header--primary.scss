@@ -1,0 +1,83 @@
+/**
+* Primary Navigation
+*/
+
+.nav-header--primary {
+
+  /* Primary/Main Menu Styles */
+  .menu {
+    margin-right: auto;
+
+    a {
+      color: var(--wp--preset--color--contrast);
+      border-bottom: solid 4px transparent;
+      font-family: var(--wp--preset--font-family--secondary);
+      font-size: var(--wp-preset--font-size--medium);
+      text-decoration: none;
+      position: relative;
+      padding: 0 0 0.25em 0;
+
+      &:active,
+      &:hover {
+        color: color(primary-40);
+      }
+    }
+
+    /* Add a decorative line to the current menu item. */
+    &__item > a:hover::after,
+    &__item--current > a::after {
+      color: var(--wp--preset--color--contrast);
+      background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDkyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0yIDYuNDc0NThDMTkuNDk0IDMuNDIxNjIgMzguMDc4MyAyLjY5MzMyIDU2LjE1ODcgMi4yMzQzQzY3LjQxNjUgMS45NDg0OCA3OC44MDE1IDEuNzYxMTkgOTAgMi42Nzk0MSIgc3Ryb2tlPSIjQ0UzQzg5IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K) no-repeat 50%;
+        content: "";
+        height: 0.5rem;
+        left: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+        text-align: center;
+        top: 100%;
+        transform: translate(-50%,-50%);
+        width: 4.5em;
+    }
+
+    /* Dropdown Menu Styles */
+    /* Add a light grey bg to the dropdown */
+    &__sub-menu {
+      /* Position the dropdown below the parent link. */
+      width: 16rem;
+      position: absolute;
+      left: 0;
+      z-index: 9;
+
+      /* Add some space between links. */
+      li {
+        padding: 0.5rem;
+      }
+
+      /* Change the font size and weight of the sub menu links. */
+      a {
+        font-size: var(--wp--preset--font-size--small-medium);
+        font-weight: var(--wp--custom--font-weight--normal);
+        padding: 0;
+
+        /* Remove the parent item hover state. */ 
+        &::after {
+          content: none;
+        }
+
+        &:active,
+        &:hover {
+          color: var(--wp--preset--color--secondary);
+          font-weight: var(--wp--custom--font-weight--normal);
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // Display sub menu to the left for the last item. 
+    .menu__item:last-child > details > ul {
+      left: auto;
+      right: 0;
+    }
+  }
+}

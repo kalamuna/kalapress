@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/author",
+  "title": "Kalapress - Author",
+  "description": "A custom author block.",
+  "category": "kalapress",
+  "icon": "welcome-write-blog",
+  "keywords": [
+    "author",
+    "team member"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "author.php"
+  },
+  "example": "true",
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "style": "file:./author.css",
+  "script": "file:./author.js"
+}

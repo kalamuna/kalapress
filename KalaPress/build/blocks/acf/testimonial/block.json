@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/testimonial",
+  "title": "Kalapress -Testimonial",
+  "description": "A custom testimonial block.",
+  "category": "kalapress",
+  "icon": "admin-comments",
+  "keywords": [
+    "testimonial",
+    "quote"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "testimonial.php"
+  },
+  "example": "true",
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "style": "file:./testimonial.css",
+  "script": "file:./testimonial.js"
+}

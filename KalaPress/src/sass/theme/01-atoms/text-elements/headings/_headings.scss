@@ -1,0 +1,6 @@
+/* Main heading styles should be added in theme.json */
+
+// Disable the top margin for first h2's on a page.
+.page-layout * > h2:first-child {
+	margin-block-start: 0;
+}

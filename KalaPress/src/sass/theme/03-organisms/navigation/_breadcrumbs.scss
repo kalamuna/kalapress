@@ -1,0 +1,21 @@
+.breadcrumbs {
+  color: var(--wp--preset--color--contrast);
+  font-size: var(--wp--preset--font-size--small-medium);
+  padding-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+
+  &__sep {
+    margin: 0 .5rem;
+  }
+
+  a {
+    color: var(--wp--preset--color--contrast);
+    padding-bottom: 0.2rem;
+
+    &:active,
+    &:hover {
+      color: var(--wp--preset--color--secondary);
+    }
+  }
+}

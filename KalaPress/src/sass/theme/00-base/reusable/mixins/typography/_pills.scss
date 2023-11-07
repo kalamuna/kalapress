@@ -1,0 +1,31 @@
+// +++++++++ Tags Style
+
+@mixin pill {
+	display: block;
+	font-family: var(--wp--preset--font-family--primary);
+	padding: rem(1) rem(14);
+	border-radius: 100px;
+	text-decoration: none;
+	background: $grey-alt;
+	&:hover,
+	&:focus {
+		background: $grey-light;
+		transition: all .2s;
+		color: $charcoal-dark;
+	}
+
+	&:after {
+		display: none;
+	}
+
+	.dark-mode & {
+		color: color(grey-100);
+		background: $charcoal;
+
+		&:hover,
+		&:focus {
+			background: $charcoal-dark;
+			color: color(grey-100);
+		}
+	}
+}

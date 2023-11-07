@@ -1,0 +1,111 @@
+{
+    "key": "group_63a21ba25f5d3",
+    "title": "Block - FAQs",
+    "fields": [
+        {
+            "key": "field_63a21ba23f7a9",
+            "label": "FAQ Type to Show",
+            "name": "faq_type",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Choose an FAQ category to show.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "faq_types",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "select",
+            "allow_null": 0,
+            "multiple": 0
+        },
+        {
+            "key": "field_63a21fe937e3c",
+            "label": "Headline",
+            "name": "faq_headline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional headline to go at the top of the FAQ block. You can also manually add a separate Heading block as a default Gutenberg block.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63a22c6792b16",
+            "label": "View All FAQs Button",
+            "name": "faq_view_all_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_63c05dd7b0a6c",
+            "label": "Output Schema?",
+            "name": "output_schema",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Choose whether or not to output the schema (which will be indexed by Google and show up in search results).",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/faqs"
+            }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/sample-faqs"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "modified": 1690747532
+}

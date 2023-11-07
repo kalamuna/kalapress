@@ -1,0 +1,28 @@
+.testimonial {
+
+	&__text {
+		margin-bottom: 2rem;
+		font-size: var(--wp--preset--font-size--large);
+	}
+
+	footer {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	/* Crop the image within a container. */
+	&__media {
+		margin: 0 1em 0 0;
+		width: 4.12rem;
+		height: 4.12rem;
+		overflow: hidden;
+		clip-path: circle();
+
+		img {
+			height: 4.12rem;
+			width: 4.12rem;
+			object-fit: cover;
+			object-position: top;
+		}
+	}
+}

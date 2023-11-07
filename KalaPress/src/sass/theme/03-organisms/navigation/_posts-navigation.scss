@@ -1,0 +1,19 @@
+.posts-navigation {
+  margin-top: $space-30;
+  margin-bottom: $space-30;
+
+  .nav-links {
+    text-align: center;
+
+    a {
+      font-weight: var(--wp--custom--font-weight--bold);
+    }
+
+  }
+  .nav-previous {
+
+  }
+  .nav-next {
+
+  }
+}

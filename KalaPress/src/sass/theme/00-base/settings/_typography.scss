@@ -1,0 +1,32 @@
+/* @typography
+ *
+ * Fonts are hosted locally in the /fonts/ folder.
+ * Font settings should be updated in the theme.json file.
+ * Please use the CSS variables from theme.json instead of adding
+ * new custom variables here. 
+ */
+
+// ===== Font Weights
+
+/* 
+* Font Weight settings are added through theme.json
+*
+* Under settings.custom.fontWeight you can enter your values.
+*/
+
+// ===== Font Settings
+
+/**
+* Body Font
+* Body font settings are added through theme.json.
+*
+* Under styles.typography you can enter values for: 
+* fontFamily, lineHeight, and fontSize.
+*/
+
+/**
+* ===== Font Sizes
+* 
+* To use responsive font sizes, add fluid settings to the property in theme.json 
+* ie. Add a min & max size under settings.typography.fontSizes.xxx-large.
+*/

@@ -1,0 +1,1 @@
+console.log("`view.js` (from dynamic-dynamic block) on FRONTEND only");

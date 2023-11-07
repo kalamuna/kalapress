@@ -1,0 +1,658 @@
+/* _print.scss */
+// contains default boilerplate print resets, simplytheme default theme specific
+// resets, and project theme specific resets.
+
+/*
+ * Print styles.
+ *  Inlined to avoid the additional HTTP request:
+ *  http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+// ===== Theme Init (Third Party Imports)
+@import "00-base/imports/theme-init";
+
+// ===== Settings (Variables)
+@import "00-base/settings/_index";
+
+// ===== Reusable Functions
+@import "00-base/reusable/functions/__all";
+
+// ===== Reusable Mixins
+@import "00-base/reusable/mixins/__all";
+
+
+// default
+@media print {
+
+	*,
+	*::before,
+	*::after {
+		background: transparent !important;
+		color: #000 !important;
+
+		/* Black prints faster:
+										  http://www.sanbeiji.com/archives/953 */
+		box-shadow: none !important;
+		text-shadow: none !important;
+		// font-family: "Times"
+	}
+
+	// table {
+	//   page-break-inside: avoid !important;
+	// }
+
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
+
+	// a[href]:after {
+	// content: " (" attr(href) ")";
+	// }
+
+	// abbr[title]:after {
+	// content: " (" attr(title) ")";
+	// }
+
+	/*
+	 * Don't show links that are fragment identifiers,
+	 * or use the `javascript:` pseudo protocol
+	 */
+
+	// a[href^="#"]:after,
+	// a[href^="javascript:"]:after {
+	//     content: "";
+	// }
+
+	pre,
+	blockquote {
+		font-weight: var(--wp--custom--font-weight--bold) !important;
+		font-style: italic;
+		margin-top: rem(15) !important;
+		margin-bottom: rem(15) !important;
+		page-break-inside: avoid;
+		font-size: 12pt;
+
+		* {
+			font-size: 12pt;
+		}
+	}
+
+	/*
+	 * Printing Tables:
+	 * http://css-discuss.incutio.com/wiki/Printing_Tables
+	 */
+
+	thead {
+		display: table-header-group;
+	}
+
+	tr {
+		border-bottom: 1px solid #ebebeb !important;
+	}
+
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
+
+	// theme default ==================================
+
+	html,
+	body {
+		// @include reset-font;
+		// font-family: Georgia, ‘Times New Roman’, serif;
+		font-size: 10pt;
+		line-height: 16pt;
+	}
+
+	* {
+		font-size: 10pt !important;
+		line-height: 16pt !important;
+	}
+
+	body {
+		padding: 1em;
+	}
+
+	main,
+	.layout-container,
+	.region,
+	.block {
+		margin: 0 !important;
+		padding: 0 !important;
+		display: block !important;
+		max-width: none !important;
+	}
+
+	.site-name {
+		font-weight: var(--wp--custom--font-weight--bold);
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol,
+	dl,
+	pre,
+	table,
+	fieldset,
+	form
+	details,
+	blockquote,
+	object,
+	iframe,
+	pre,
+	address,
+	code,
+	dl,
+	dt,
+	dd,
+	embed,
+	label,
+	audio,
+	video {
+		// page-break-inside: avoid;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+
+		@include reset;
+		text-indent: 0 !important;
+		margin-bottom: rem(15);
+		margin-top: rem(35);
+		display: block !important;
+		width: 100%;
+	}
+
+	// ul,ol{
+	//   @include reset;
+	// }
+
+	.table-container {
+		position: static !important;
+		overflow: visible !important;
+		max-width: 100% !important;
+	}
+
+	table {
+		max-width: 100% !important;
+		border: 1px solid #000 !important;
+		table-layout: fixed !important;
+
+		span {
+			display: inline-block !important;
+			max-width: 100% !important;
+		}
+
+		* {
+			max-width: 100% !important;
+			border-color: #000 !important;
+		}
+
+		caption {
+			border-width: 1px 1px 0 1px;
+			border-style: solid;
+			border-color: #000;
+		}
+
+		th:not(:last-child) {
+			border-right: 1px solid #000;
+		}
+
+		td:not(:last-child) {
+			border-right: 1px solid #000;
+		}
+
+		thead {
+			display: table-header-group !important;
+			break-inside: auto;
+		}
+
+		tfoot {
+			display: table-row-group !important;
+		}
+
+		tr {
+			page-break-inside: avoid !important;
+		}
+	}
+
+	table th {
+		text-align: left;
+	}
+
+
+	form {
+		display: block !important;
+	}
+
+	h1,
+	#page-title {
+		font-weight: 700;
+		font-size: 22pt !important;
+		line-height: 28pt !important;
+
+		span {
+			font-weight: 700;
+			font-size: 22pt !important;
+			line-height: 28pt !important;
+		}
+	}
+
+	h2 {
+		font-weight: 700;
+		font-size: 18pt !important;
+		line-height: 24pt !important;
+
+		a {
+			font-size: 18pt !important;
+			line-height: 24pt !important;
+		}
+
+		span {
+			font-weight: 700;
+			font-size: 18pt !important;
+			line-height: 24pt !important;
+		}
+	}
+
+	h3 {
+		font-weight: 700;
+		font-size: 16pt !important;
+		line-height: 20pt !important;
+
+		a {
+			font-size: 16pt !important;
+			line-height: 20pt !important;
+		}
+	}
+
+	h4 {
+		font-weight: 700;
+		font-size: 14pt !important;
+		line-height: 18pt !important;
+
+		a {
+			font-size: 14pt !important;
+			line-height: 18pt !important;
+		}
+	}
+
+	h5 {
+		font-weight: 700;
+		font-size: 12pt !important;
+		line-height: 16pt !important;
+
+		a {
+			font-size: 12pt !important;
+			line-height: 16pt !important;
+		}
+	}
+
+	h5,
+	h6 {
+		font-weight: 700;
+	}
+
+	strong {
+		font-weight: var(--wp--custom--font-weight--bold);
+	}
+
+
+	// theme specific ====================================
+
+
+	// Body w/ toolbar fixed
+
+	body {
+		padding-top: rem(13) !important;
+	}
+
+
+	// ===== Layout Container
+
+	.layout-container {
+		max-width: none;
+	}
+
+
+	// ===== Letterhead for print
+
+	.print--letterhead {
+		display: block !important;
+	}
+
+
+	// ===== Header
+
+	.site-header {
+		display: none !important;
+	}
+
+
+	// ===== Masthead Primary
+
+	.region--masthead-primary {
+		width: 100% !important;
+		height: auto !important;
+		padding-bottom: rem(35) !important;
+		border-bottom: 0 !important;
+		padding-top: rem(20) !important;
+
+		.region-inner {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+
+
+	// ===== Menu Toggle
+
+	.menu-toggle-wrapper {
+		display: none !important;
+	}
+
+
+	// ===== Masthead Secondary
+
+	.region--masthead-secondary {
+		display: none !important;
+	}
+
+
+	// ===== Off Canvas Dialog
+
+	.dialog-off-canvas-main-canvas {
+		padding-top: 0 !important;
+	}
+
+
+	// ===== Menu
+
+	#block-horizontalmenu {
+		display: none !important;
+	}
+
+
+	// ===== Sidebar Menu
+
+	.block-admin-units.block-ogc-sidebar-menu,
+	.region--sidebar-first .block-menu {
+		display: none !important;
+	}
+
+
+	// ===== Site Branding
+
+	.block-system-branding-block {
+		display: flex !important;
+
+		.site-logo {
+			position: relative;
+			width: 100%;
+
+			&::before {
+				display: block;
+			}
+
+			.logo--default {
+				display: none !important;
+			}
+
+			.logo--print {
+				display: block !important;
+			}
+		}
+
+		.print-logo {
+			display: block;
+		}
+
+		.site-name {
+
+			a {
+				font-size: rem(20) !important;
+			}
+		}
+	}
+
+
+	// ===== Local Tasks Block
+
+	#block-de-theme-local-tasks {
+		display: none !important;
+	}
+
+
+	// ===== Breadcrumb Block
+
+	.block-system-breadcrumb-block {
+		display: none !important;
+	}
+
+
+	// ===== Content Section
+
+	.section-content {
+		clear: both;
+		padding-top: rem(35) !important;
+	}
+
+
+	// ===== Region Content Wrapper
+
+	.region-content-wrapper {
+		padding: 0 !important;
+	}
+
+
+	// ===== Footer
+
+	#footer {
+		display: none;
+	}
+
+
+	// ===== Pager
+
+	.pager {
+		display: none !important;
+	}
+
+
+	// ===== More Link
+
+	.more-link {
+		display: none !important;
+	}
+
+
+	// ===== Sidebar Menu
+
+	.sidebar-menu {
+		display: none !important;
+	}
+
+
+	// ===== Messages
+
+	.messages {
+		display: none !important;
+	}
+
+	// ===== Section Rows (They appear to have some script toggling their opacity on scroll)
+
+	.section-row {
+		opacity: 1 !important;
+	}
+
+
+	// ===== Fix unexpected overlap when drupal toolbar is present
+
+	.mm-page {
+		padding-top: 0 !important;
+	}
+
+
+	// ++++++++++ Search
+
+
+	// ===== Search Toggle
+
+	.search-toggle-wrapper {
+		display: none !important;
+	}
+
+
+	// ===== Global Search Block
+
+	.block-ogc-search-global-search-block {
+		display: none !important;
+	}
+
+
+	// ===== Facets
+
+	.block-facets {
+		display: none !important;
+	}
+
+
+	// ===== Search View
+
+	.search-view {
+
+		.view-header {
+			display: none !important;
+		}
+
+		.view-filters {
+			display: none !important;
+		}
+	}
+
+
+	// ++++++++++ Accordions
+
+	.template--accordion {
+		margin-bottom: 0 !important;
+		border-bottom: 0 !important;
+
+		& > h2 {
+			padding: 0 !important;
+			margin-bottom: rem(15) !important;
+			margin-top: rem(35) !important;
+			border-top: 0 !important;
+			border-bottom: 0 !important;
+
+			&:focus {
+				border-top: 0 !important;
+				border-bottom: 0 !important;
+			}
+
+			&::after {
+				display: none !important;
+			}
+		}
+
+
+		// ===== Accordion Content
+
+		.accordion-content {
+			position: static !important;
+			width: auto !important;
+			height: auto !important;
+			margin: 0 !important;
+			overflow: visible !important;
+			margin-bottom: 0 !important;
+			padding: 0 !important;
+		}
+	}
+
+
+	// ++++++++++ Print Button
+
+	.print-button {
+		display: none !important;
+	}
+
+
+	// ++++++++++ WYSIWYG Elements
+
+
+	// ===== Iframe
+
+	.iframe-container {
+		display: none !important;
+	}
+
+
+	// ===== Responsive Video Embed
+
+	.video-embed-field-responsive-video {
+		display: none !important;
+	}
+
+
+	// ===== Embedded Entity
+
+	.embedded-entity {
+		display: none !important;
+	}
+
+
+	// ===== Fancy Lists
+
+	.template--fancy-list {
+
+		.item-number {
+			font-size: 36pt !important;
+			line-height: 36pt !important;
+		}
+	}
+
+
+	// ++++++++++ CTAs
+
+	.node--type-cta {
+		display: none !important;
+	}
+
+
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// ++++++++++ Hide For Print Reusable Class
+
+	.no-print {
+		display: none !important;
+	}
+}
+
+// end print
+

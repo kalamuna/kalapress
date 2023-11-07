@@ -1,0 +1,48 @@
+/**
+* Utility Navigation
+*/
+
+.nav-header--utility {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  margin-bottom: 2em;
+  font-size: var(--wp--preset--font-size--base);
+
+  /* Utility Menu Navigation */
+  .menu {
+    margin-inline-end: 2em;
+  
+    li {
+  
+      & > a {
+        position: relative;
+      }
+    }
+
+    a {
+      font-weight: var(--wp--custom--font-weight--normal);
+      color: var(--wp--preset--color--contrast);
+      font-size: var(--wp--preset--font-size--small-medium);
+  
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.35em;
+      }
+    }
+
+    // Style the details summary arrow 
+    .menu__item details {
+      summary {
+        /* Make the dropdown arrow larger than the default menus. */
+        &::after {
+          border-bottom: 2px solid var(--color-contrast);
+          border-right: 2px solid var(--color-contrast);
+        }
+      }
+    }
+  }
+}

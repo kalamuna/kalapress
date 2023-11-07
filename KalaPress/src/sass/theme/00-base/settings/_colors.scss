@@ -1,0 +1,78 @@
+/* @theme palette
+ *
+ * !!! Only use the SCSS variables below in SCSS functions to avoid compile error. 
+ * Other than that those are just for references. Please use the CSS color variables
+ * referenced in theme.json and :root instead.
+ */
+
+/*
+ * Brand Theme Colors ================================================
+ *
+ * These should match the colors in theme.json.
+ */
+$brand-base: #fff; // Background
+$brand-contrast: #191919; // Text Color
+$brand-primary: #CE3C90; 
+$brand-secondary: #323334; 
+$brand-tertiary: #FD81C3;
+$brand-quartary: #D55A50; 
+$brand-quinary: #C3A3FF; 
+$brand-senary: #737487; 
+
+/* Greyscale Color */
+$grey: #929292;
+
+/* Descriptive Colors */
+$debug-red: rgb(160, 0, 0);
+$debug-yellow: #FFD424;
+$debug-green: rgb(0, 160, 0);
+$debug-blue: rgb(0, 0, 160);
+
+/* CSS Color variables ================================================
+ *
+ * For instance, to use color $brand-primary, use var(primary-**) variations below instead.
+ */
+:root {
+
+  /* Primary palette  ==================================================== */
+  --color-base: #{$brand-base};
+  --color-contrast: #{$brand-contrast};
+  --color-primary: #{$brand-primary};
+  --color-secondary: #{$brand-secondary};
+  --color-tertiary: #{$brand-tertiary};
+  --color-quartary: #{$brand-quartary};
+  --color-quinary:  #{$brand-quinary};
+  --color-senary:   #{$brand-senary};
+
+  /* Loop to generate & assign colors with light and dark values. */
+  @for $i from 0 through 10 {
+
+    /* Generate the color values from light to dark. */
+    $primary-val: if($i == 5, $brand-primary, if($i < 5, darken($brand-primary, abs($i - 5) * 10%), lighten($brand-primary, ($i - 5) * 10%)));
+    $secondary-val: if($i == 5, $brand-secondary, if($i < 5, darken($brand-secondary, abs($i - 5) * 10%), lighten($brand-secondary, ($i - 5) * 10%)));
+    $grey-val: if($i == 5, $grey, if($i < 5, darken($grey, abs($i - 5) * 10%), lighten($grey, ($i - 5) * 10%)));
+    $debug-red-val: if($i == 5, $debug-red, if($i < 5, darken($debug-red, abs($i - 5) * 10%), lighten($debug-red, ($i - 5) * 10%)));
+    $debug-yellow-val: if($i == 5, $debug-yellow, if($i < 5, darken($debug-yellow, abs($i - 5) * 10%), lighten($debug-yellow, ($i - 5) * 10%)));
+    $debug-green-val: if($i == 5, $debug-green, if($i < 5, darken($debug-green, abs($i - 5) * 10%), lighten($debug-green, ($i - 5) * 10%)));
+    $debug-blue-val: if($i == 5, $debug-blue, if($i < 5, darken($debug-blue, abs($i - 5) * 10%), lighten($debug-blue, ($i - 5) * 10%)));
+
+    /* Assign the values from 00 to 100 to the CSS variables. */
+    // @primary palette  ====================================================
+    --color-primary-#{if($i == 0, '00', $i * 10)}: #{$primary-val};
+    --color-secondary-#{if($i == 0, '00', $i * 10)}: #{$secondary-val};
+
+    // @greyscale palette  ===================================================
+    --color-grey-#{if($i == 0, '00', $i * 10)}: #{$grey-val};
+
+    // @accent colors palette ================================================
+    --color-debug-red-#{if($i == 0, '00', $i * 10)}: #{$debug-red-val};
+    --color-debug-yellow-#{if($i == 0, '00', $i * 10)}: #{$debug-yellow-val};
+    --color-debug-green-#{if($i == 0, '00', $i * 10)}: #{$debug-green-val};
+    --color-debug-blue-#{if($i == 0, '00', $i * 10)}: #{$debug-blue-val};
+  }
+}
+
+// Helper function to support a simple function name for fetching colors based on name or usage. color(grey-00);
+@function color($name) {
+  @return var(--color-#{$name});
+}

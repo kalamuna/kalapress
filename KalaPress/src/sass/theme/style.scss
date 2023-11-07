@@ -1,0 +1,39 @@
+// Imports for all directories
+
+// Theme Init (Third Party Imports)
+@import "00-base/imports/theme-init";
+
+// Normalize
+@import "00-base/normalize";
+
+// Settings (Variables)
+@import "00-base/settings/_index";
+
+// Reusable Functions
+@import "00-base/reusable/functions/__all";
+
+// Reusable Mixins
+@import "00-base/reusable/mixins/__all";
+
+// Master Settings (Settings to affect the theme appearance globally)
+@import "00-base/master-settings";
+
+// Atoms
+// These are items that can't be broken down any further.
+@import "01-atoms/__all";
+// @import "01-atoms/_icon.scss";
+
+// Molecules
+// Group of Atoms that form UI components.
+@import "02-molecules/__all";
+
+// Organisms
+// Combining molecules together to form organisms that make
+// up a distinct section of an interface (i.e. navigation bar. )
+@import "03-organisms/__all";
+
+// Layouts
+@import "04-layouts/__all";
+
+// Misc
+@import "05-misc/__all";

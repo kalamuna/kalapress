@@ -1,0 +1,30 @@
+// Global Default Font
+
+html {
+ // These settings are applied under the theme.json > styles.
+}
+
+// ===== Other
+
+strong,
+b {
+  font-weight: var(--wp--custom--font-weight--bold);
+}
+
+em {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--wp--preset--font-size--small);
+}
+
+sup,
+sub {
+  text-transform: uppercase;
+  font-weight: var(--wp--custom--font-weight--bold);
+
+  @include breakpoint($m-break) {
+    font-size: rem(10);
+  }
+}

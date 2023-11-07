@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/faqs",
+  "title": "Kalapress - Frequently Asked Questions (FAQs)",
+  "description": "A custom FAQ block from Kalapress.",
+  "version": "0.1.0",
+  "category": "kalapress",
+  "icon": "editor-expand",
+  "keywords": [
+    "accordion",
+    "collapsible",
+    "faq"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "faqs.php"
+  },
+  "example": "true",
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "style": "file:./faqs.css",
+  "script": "file:./faqs.js"
+}

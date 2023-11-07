@@ -1,0 +1,20 @@
+// ++++++++++ Material Outlined Icon Mixin ====================
+
+// Icon variables can be found at (src/fonts/material-outlined/_material-icons-variables.scss)
+
+@mixin material-icon {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: block;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1;
+	vertical-align: -.125em;
+}
+
+@mixin icon($icon: $material-create) {
+	font-family: 'Material Icons';
+	content: material-content($icon);
+	@include material-icon();
+}

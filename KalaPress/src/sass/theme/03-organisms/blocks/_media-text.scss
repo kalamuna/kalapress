@@ -1,0 +1,14 @@
+/*
+ * Core: Media & Text Block
+ *
+ */
+
+.wp-block-media-text {
+
+  &__content {
+    /* On smaller devices, remove the side padding. */
+    @media screen and (max-width: $s-break) { 
+      padding: 0 !important;
+    }
+  }
+}

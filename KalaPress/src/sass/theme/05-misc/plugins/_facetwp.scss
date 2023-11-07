@@ -1,0 +1,33 @@
+/**
+* FacetWP Plugin styles.
+*
+*/
+
+.facetwp-facet {
+  .facetwp-checkbox {
+    font-family: var(--wp--preset--font-family--secondary);
+    font-size: var(--wp--preset--font-size--base);
+    margin-bottom: 1em;
+  }
+  
+  .facetwp-counter {
+    color: var(--wp--preset--color--primary);
+    font-family: var(--wp--preset--font-family--primary);
+  }
+}
+
+// Reset Button Styles.
+.facetwp-facet.facetwp-facet-search_reset {
+  margin-bottom: 0;
+}
+
+// Apply the same styles as the default search button.
+button.facetwp-reset {
+  @include btn(alternate);
+  border: none;
+  border-radius: $radius-1;
+  font-weight: var(--wp--custom--font-weight--bold);
+  margin: 0;
+  padding: $space-10 $space-25;
+  cursor: pointer;
+}

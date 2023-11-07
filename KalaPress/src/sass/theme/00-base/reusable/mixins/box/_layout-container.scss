@@ -1,0 +1,49 @@
+// ++++++++++ Layout Container Mixins
+
+/* Style an element as a centered container. */
+@mixin container {
+  max-width: var(--wp--style--global--content-size);
+	margin-left: auto;
+	margin-right: auto;
+  padding-inline-start: space(20);
+  padding-inline-end: space(20);
+}
+
+/* Style an element as a full-width container. */
+@mixin container--full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow-x: hidden;
+
+  /* Apply inline padding to the content within. */
+  > * {
+    padding-inline-start: space(20);
+    padding-inline-end: space(20);
+  }
+}
+
+/* Style an element that is slightly wider than the content container. */
+@mixin container--wide {
+  margin: 0;
+  max-width: 100%;
+  width: 100%;
+
+  @include breakpoint($l-break-max) {
+    margin-left: calc(50% - (var(--wp--style--global--wide-size) / 2)) !important;
+    margin-right: calc(50% - (var(--wp--style--global--wide-size) / 2)) !important;
+    max-width: var(--wp--style--global--wide-size);
+    width: 100vw;
+  }
+}
+
+/* Style an element as a narrow container. */
+@mixin container--narrow {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 55rem !important;
+  width: auto;
+}

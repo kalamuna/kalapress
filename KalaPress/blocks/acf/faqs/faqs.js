@@ -1,0 +1,1 @@
+import './faqs.scss';

@@ -1,0 +1,7 @@
+@mixin reset--visually-hidden() {
+	position: static;
+	width: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+}

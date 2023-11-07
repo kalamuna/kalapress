@@ -1,0 +1,104 @@
+/* The menu toggle.*/
+
+.menu-toggle {
+  margin: 0;
+  border: 0;
+
+  > summary {
+    text-align: center;
+    // Remove the default details styles.
+    padding: 0;
+    // Set the size of the menu toggle button.
+    width: 2rem;
+    height: 1rem;
+    position: relative;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    outline-offset: 0.25rem;
+
+		/* Hide the default details arrow. */
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+    .menu-toggle__content {
+      /* Create the lines in the menu toggle. */
+      span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: var(--wp--preset--color--contrast);
+        border-radius: 3px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+
+        &:nth-child(1) {
+          top: 0px;
+        }
+      
+        &:nth-child(2),
+        &:nth-child(3) {
+          top: 8px;
+        }
+      
+        &:nth-child(4) {
+          top: 16px;
+        }
+      }
+
+      // Align the label underneath the icon.
+      &__label {
+        margin-bottom: 0;
+        padding-block-start: 1.25rem;
+      }
+
+      > * {
+        margin-inline-start: 0;
+      }
+    }
+
+    /* Change the opacity when the menu toggle is hovered. */
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  // Transform the menu toggle to an X when details are open.
+  &[open] summary { 
+    span {
+      &:nth-child(1) {
+        top: 8px;
+        width: 0%;
+        left: 50%;
+      }
+    
+      &:nth-child(2) {
+        transform: rotate(45deg);
+      }
+    
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    
+      &:nth-child(4) {
+        top: 8px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+  }
+
+  // Remove the extra bottom padding when open.
+  &[open] {
+    padding-bottom: 0;
+
+    // Slide in the flyout content from the right.
+    .nav-header--flyout__content {
+      transform: translateX(0);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+// @breakpoints ==============================================
+// these can be updated to suit the site
+
+$xxxs-break: 23.4375em;     // 375px
+$xxs-break: 25em;           // 400px
+$xxs-break-max: 31.1875em;  // 499px max
+$xs-break: 31.25em;         // 500px
+$xs-break-max: 37.4375em;   // 599px max
+$s-break: 37.5em;           // 600px
+$s-break-max: 56.1875em;    // 899px max
+$m-break: 56.25em;          // 900px
+$m-break-max: 62.4375em;    // 999px max
+$xm-break: 62.5em;          // 1000px
+$xm-break-max: 74.9375em;   // 1199px max
+$l-break: 75em;             // 1200px
+$l-break-max: 112.4375em;   // 1799px max
+$xl-break: 112.5em;         // 1800px
+
+// Breakpoint statistics sourced from here --> https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+// Size chart here --> https://cdn-images-1.medium.com/max/2000/1*7YeOvzoYgUEDJdfQy2ERXg.png

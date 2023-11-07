@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/download",
+  "title": "Kalapress - Download",
+  "description": "A custom download block.",
+  "category": "kalapress",
+  "icon": "download",
+  "keywords": [
+    "download",
+    "file"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "download.php"
+  },
+  "example": "true",
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    }
+  }
+}

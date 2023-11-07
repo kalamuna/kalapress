@@ -1,0 +1,40 @@
+
+
+// +++++++++ Links
+
+// Styles for default links.
+a {
+	color: currentColor;
+  transition: all 0.2s;
+  text-decoration-thickness: 0.125rem;
+  text-decoration-color: var(--wp--preset--color--primary);
+  text-underline-offset: 0.375rem;
+
+  &:active,
+  &:hover {
+    color: var(--wp--preset--color--primary);
+  }
+
+	&:visited {
+		color: currentColor;
+	}
+}
+
+// // ++++++++++ External Link callout ================================================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  .ext {
+    font-size: 1.25rem;
+    width: 100%;
+    max-width: 1em;
+    margin-inline-start: 0.35em;
+    vertical-align: middle;
+  }
+}

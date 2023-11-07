@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/accordion",
+  "title": "Kalapress Accordion",
+  "description": "A custom accordion block from Kalapress.",
+  "category": "kalapress",
+  "icon": "editor-expand",
+  "keywords": [
+    "accordion",
+    "collapsible",
+    "faq"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "accordion.php"
+  },
+  "example": "true",
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    }
+  }
+}

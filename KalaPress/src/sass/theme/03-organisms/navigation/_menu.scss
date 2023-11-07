@@ -1,0 +1,117 @@
+/* 
+* Default menu styles.
+*
+* Add menu location specific styles to their related stylesheets:
+* ie. .nav-header--primary, .footer, etc.
+*/
+
+.menu {
+  @include unstyled-list;
+  display: flex;
+  gap: 2em;
+
+  li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    position: relative;
+  }
+
+  a {
+    color: var(--wp--preset--color--contrast);
+    text-decoration: none;
+    padding: 0 0 0.25em 0;
+
+    /* Align link title next to the menu icon. */
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    &:active,
+    &:hover {
+      color: color(primary-40);
+    }
+  }
+  
+  /* Set a fixed size for menu icons. */
+  &__item__icon {
+    height: 1em;
+    width: auto;  
+  }
+
+  /* Current menu item. */
+  &__item--current > a {
+    
+  }
+
+  /* Dropdown Styles.  */
+  &__sub-menu {
+    @include unstyled-list;
+    flex-direction: column;
+    background: color(grey-100);
+    box-shadow: var(--wp--custom--box-shadow--default);
+    padding: 0.5em 1em;
+
+    /* Position the dropdown below the parent link. */
+    width: 12rem;
+    position: absolute;
+    left: 0;
+    z-index: 9;
+
+    li {
+    }
+
+    a {
+      display: block;
+      text-align: left;
+    }
+
+  }
+
+  // Style the details summary toggle/arrow. 
+  .menu__item details {
+    summary {
+      cursor: pointer;
+      list-style-type: none;
+      position: relative;
+      width: 1em;
+      height: 1em;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      // Arrow dropdown button. 
+      &::after {
+        content: "";
+        display: inline-block;
+        font-size: var(--font-size-700);
+        width: 0.45em;
+        height: 0.45em;
+        border-bottom: 3px solid var(--wp--preset--color--contrast);
+        border-right: 3px solid var(--wp--preset--color--contrast);
+        transform: rotate(45deg);
+        position: relative;
+        top: -0.65em;
+        left: 0.45em;
+        opacity: 1;
+      }
+
+      // On hover, change the opacity of the arrow.
+      &:hover:after {
+        opacity: 0.7;
+      }
+    }
+
+    // Point the disclosure arrow upwards when toggled.
+    &:hover,
+    &[open] > summary {
+      &::after  {
+        transform: rotate(225deg);
+        top: -0.45em;
+      }
+    }
+    
+  }
+}

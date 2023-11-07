@@ -1,0 +1,9 @@
+/* use this file to add styles to the admin where the styles are not specific to a particular page
+ * for individual pages, create a folder foreach location and add a scss file and an index.js file
+*/
+
+
+/* home icon of admin bar */
+#wp-admin-bar-site-name>a.ab-item::before {
+  color: #FFEB70;
+}

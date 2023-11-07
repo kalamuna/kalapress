@@ -1,0 +1,49 @@
+{
+    "key": "group_63bf2dc915055",
+    "title": "Block - Card",
+    "fields": [
+        {
+            "key": "field_63bf2dc917119",
+            "label": "Featured Page or Post",
+            "name": "featured_item",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Select a page or post to display in this card.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post",
+                "page"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/card"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1673474008
+}

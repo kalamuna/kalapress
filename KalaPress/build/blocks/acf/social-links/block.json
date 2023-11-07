@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/social-links",
+  "title": "Kalapress - Social Media Links",
+  "description": "Output the links and icons from Theme Options->Social.",
+  "category": "kalapress",
+  "icon": "share",
+  "keywords": [
+    "social media",
+    "sharing"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "social-links.php"
+  },
+  "example": "true",
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ],
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "style": "file:./social-links.css",
+  "script": "file:./social-links.js"
+}

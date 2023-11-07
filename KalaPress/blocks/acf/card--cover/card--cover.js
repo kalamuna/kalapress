@@ -1,0 +1,1 @@
+import './card--cover.scss';

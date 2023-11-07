@@ -1,0 +1,14 @@
+#sidebar {
+  padding-left: 2.25rem;
+
+  .widget {
+    .wp-block-categories-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        margin-bottom: .5rem;
+      }
+    }
+  }
+}

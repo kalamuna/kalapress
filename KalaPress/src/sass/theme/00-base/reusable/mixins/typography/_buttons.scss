@@ -1,0 +1,110 @@
+// ++++++++++ Button mixin
+
+// Settings
+// $type -- primary | secondary | tertiary
+
+@mixin btn($type: primary) {
+
+  // Set the default color and border styles.
+  background-color: var(--wp--preset--color--contrast);
+  border-color: var(--wp--preset--color--contrast);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: $radius-1;
+
+  // Set default font-settings.
+  font-family: var(--wp--preset--font-family--secondary);
+  font-weight: var(--wp--custom--font-weight--bold);
+    
+  // Button sizing & alignment.
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  margin: .5em 0;
+  padding: 0.6em 1.25em;
+  text-align: center;
+  text-decoration: none;
+  transition: $default-transition;
+
+  // Leave a bit more room between link elements and their focus outine.
+  outline-offset: .2em;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  svg.ext {
+    font-size: inherit;
+    max-width: 1.125rem;
+    width: 1.125rem;
+    fill: color(grey-100);
+    padding: 0;
+    margin-left: space(10);
+    align-self: baseline;
+
+    path {
+      stroke: color(grey-100);
+      stroke-width: rem(2);
+    }
+  }
+
+  // ++++++++++ Button Styles ======================================================
+
+  // === Primary (Fill) Button
+  @if $type == primary {
+    background-color: var(--wp--preset--color--contrast);
+    border-color: var(--wp--preset--color--contrast);
+    color: color(grey-100);
+
+
+    &:focus,
+    &:visited {
+      color: color(grey-100);
+    }
+
+    &:active,
+    &:hover {
+      background-color: var(--wp--preset--color--primary);
+      border-color: var(--wp--preset--color--primary);
+      color: color(grey-100);
+    }
+  }
+
+  // === Secondary (Outline) Button Style
+  @if $type == secondary {
+    background-color: var(--wp--preset--color--base);
+    border-color: var(--wp--preset--color--contrast);
+    color: var(--wp--preset--color--contrast);
+
+    &:focus,
+    &:visited {
+      color: var(--wp--preset--color--contrast);
+    }
+
+    &:active,
+    &:hover {
+      background-color: var(--wp--preset--color--base);
+      border-color: var(--wp--preset--color--primary);
+      color: var(--wp--preset--color--primary);
+    }
+  }
+
+  // === Alternate Button Style
+  @if $type == tertiary {
+    background-color: var(--wp--preset--color--primary);
+    border-color:  var(--wp--preset--color--primary);
+    color: color(grey-100);
+
+    &:focus, 
+    &:visited {
+      color: color(grey-100);
+    }
+
+    &:active,
+    &:hover{
+      background-color: color(primary-40);
+      border-color: color(primary-40);
+      color: color(grey-100);
+    }
+  }
+}

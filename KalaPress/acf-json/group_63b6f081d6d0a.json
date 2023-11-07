@@ -1,0 +1,75 @@
+{
+    "key": "group_63b6f081d6d0a",
+    "title": "Desktop Header Logo",
+    "fields": [
+        {
+            "key": "field_63b6f082a650b",
+            "label": "Header Logo (Desktop)",
+            "name": "header_logo_desktop",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Logo for the top left section of the header. Ideally this should be a transparent PNG.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_63b6f12ba650c",
+            "label": "Header Logo (Snapped)",
+            "name": "header_logo_snapped",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Logo to show when the header snaps to the top of the screen Ideally this should be a transparent PNG. If blank, the existing logo will be  used instead.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-header"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "modified": 1672937506
+}

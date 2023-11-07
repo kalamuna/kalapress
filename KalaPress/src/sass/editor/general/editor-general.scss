@@ -1,0 +1,60 @@
+/* use this file to add styles to the admin where the styles are not specific to a particular page
+ * for individual pages, create a folder foreach location and add a scss file and an index.js file
+*/
+
+/* Add the theme font-family to the editor. */
+.editor-styles-wrapper>* {
+  font-family: var(--wp--preset--font-family--primary);
+}
+
+/* Add some padding around the editor */
+.edit-post-visual-editor__post-title-wrapper,
+.block-editor-block-list__layout {
+  padding: 0 1rem;
+}
+
+/* Full width blocks. */
+.wp-block[data-align="full"],
+.editor-styles-wrapper .alignfull {
+  margin: auto !important;
+  width: auto !important;
+  left: auto !important;
+  right: auto !important;
+  overflow: auto !important;
+}
+
+/* Remove the link for cards in the editor. */
+.card a,
+a.card__link {
+  pointer-events: none !important;
+}
+
+.featured-cards .card {
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+/* Enable borders in the editor for easier content editing. */
+.wp-block-table table td {
+  border: solid 1px #ccc !important;
+}
+
+/* Remove the padding for Tab Group details elements. */
+.tab-group details {
+  padding: 0 !important;
+}
+
+/* Remove the visually hidden styles in the editor. */
+.screen-reader-text-fe,
+.screen-reader-text-fe dashicons-before {
+  width: auto !important;
+  height: auto !important;
+  clip: auto !important;
+  position: relative !important;
+  background-color: var(--wp--preset--color--quinary);
+}
+
+/* Remove the grey background. */
+.searchwp--help::after {
+  content: none !important;
+}

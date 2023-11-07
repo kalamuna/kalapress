@@ -1,0 +1,66 @@
+// ++++++++++ List Elements
+
+/* Shared styles between ordered and unordered lists. */
+ul,
+ol {
+  /* Set the padding before and between list items. */
+  padding-inline-start: 2.5em;
+
+  li {
+    margin: 0.5rem 0;
+    padding-inline-start: 0.2em;
+
+    /* Make the list markers the primary theme color. */
+    &::marker {
+      color: var(--wp--preset--color--primary);
+      font-weight: var(--wp--custom--font-weight--bold);
+    }
+  }
+}
+
+/* Default Unordered list styles. */
+ul {
+  li::marker {}
+}
+
+/* Default Ordered list styles. */
+ol {
+  li::marker {
+    font-family: var(--wp--preset--font-family--secondary);
+  }
+}
+
+/**
+ * Block Style Variations for lists.
+ */
+
+ol,
+ul {
+
+  // Replaces the marker with a checkmark SVG.
+  &.is-style-checkmark {
+    list-style-image: url('../../images/icons/checkmark.svg');
+
+    li {
+      padding-inline-start: 0.25rem;
+
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  // Hides the marker.
+  &.is-style-no-disc {
+    padding-inline-start: 0;
+
+    li {
+      list-style-type: none;
+      padding-inline-start: 0;
+
+      &::before {
+        content: none;
+      }
+    }
+  }
+}

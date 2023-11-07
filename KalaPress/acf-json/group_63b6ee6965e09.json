@@ -1,0 +1,48 @@
+{
+    "key": "group_63b6ee6965e09",
+    "title": "404 Options",
+    "fields": [
+        {
+            "key": "field_63b6ee693e6c0",
+            "label": "404 Options",
+            "name": "404_options",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Choose a page to serve as the 404 (\"Page Not Found\") result when a visitor enters a URL that does not exist.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 1,
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-global"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1672935155
+}

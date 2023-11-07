@@ -1,0 +1,7 @@
+// ++++++++++ Layout Container Reset
+
+@mixin layout-container-reset() {
+	max-width: none;
+	padding-left: 0;
+	padding-right: 0;
+}

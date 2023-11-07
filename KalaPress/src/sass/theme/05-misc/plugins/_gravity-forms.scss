@@ -1,0 +1,346 @@
+// ++++++++++ General Form Styles
+
+.gform_wrapper,
+.gform_wrapper.gravity-theme {
+  .gform_fields {
+    grid-row-gap: 1.5rem !important;
+  }
+
+  .gform_title {
+    margin-bottom: 1rem;
+  }
+
+  .gform_heading {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Validation Messages */
+  .gfield_description,
+  .gfield_validation_message,
+  .validation_message .gform_validation_errors {
+    border-radius: 3px;
+    font-size: var(--wp--preset--font-size--small) !important;
+  }
+
+
+  /* Inputs/Fields */
+  input[type="color"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  select,
+  textarea {
+    border: solid 2px var(--wp--preset--color--contrast);
+    border-radius: 3px;
+    font-size: var(--wp--preset--font-size--base) !important;
+    padding: 0.75rem !important;
+
+    &:focus,
+    &:focus-visible {
+      outline: $outline-styles;
+      outline-offset: $outline-offset;
+    }
+  }
+
+  // // =====  Select Dropdown
+  .ginput_container_select {
+    background: var(--color-input-background);
+    border-radius: 0.25em;
+    display: block;
+    position: relative;
+  
+    // Use the border on a pseudo element to make the arrow shape and place to the right.
+    &::after {
+      content: "";
+      width: .5em;
+      height: .5em;
+      border-bottom: .15em solid color(contrast);
+      border-right: .15em solid color(contrast);
+      transform: rotate(45deg);
+      position: absolute;
+      top: 40%;
+      right: 0.8em;
+      z-index: 1;
+    }
+
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      padding-right: 1.7em;
+      outline-offset: .2em;
+      position: relative;
+      background: transparent;
+    }
+  }
+
+  /* Labels */
+  label,
+  .gform_fields .gfield .gfield_label {
+    color: var(--wp--preset--color--contrast);
+    font-family: var(--wp--preset--font-family--secondary);
+    font-size: var(--wp--preset--font-size--base);
+    font-weight: var(--wp--custom--font-weight--normal);
+    margin-bottom: 0.4rem;
+
+    .gfield_required {
+      color: color(debug-red-50);
+    }
+  }
+
+  /* Checkbox & Radio styles */
+
+  /* Visually hide the default browser elements. */
+  input[type="checkbox"],
+  input[type="radio"] {
+    @include visually-hidden;
+    opacity: 0;
+  }
+
+  .gfield_checkbox .gchoice,
+  .gfield_radio .gchoice,
+  .ginput_container_consent {
+    position: relative;
+    
+    label {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      position: relative;
+    }
+  }
+
+  /* =====  Checkboxes */
+  // We are going to create a custom checkbox style by customizing the label.
+
+  .gfield_checkbox .gchoice,
+  .ginput_container_consent {
+    margin-block-end: 0.75rem;
+
+    label {
+      font-weight: var(--wp--custom--font-weight--normal);
+    }
+
+    input[type="checkbox"] {
+      + label {
+        // Use the before element to create the box.
+        &::before {
+          border: 2px solid color(contrast);
+          background: var(--color-grey-100);
+          border-radius: 0.25em;
+          content: "";
+          height: 1.5em;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 1.5em;
+        }
+
+        // Use the after element to create the check that goes in the box.
+        &::after {
+          content: "";
+          opacity: 0;
+          height: 0.5em;
+          width: 1em;
+          transform: rotate(-45deg);
+          border-bottom: 0.18em solid var(--color-grey-100);
+          border-left: 0.18em solid var(--color-grey-100);
+          position: absolute;
+          left: 0.25em;
+          top: 0.35em;
+          transition: opacity 0.2s ease-in-out;
+        }
+      }
+
+      // Make the check mark pseudo element visible when the checkbox is checked.
+      &:checked {
+        & + label::before {
+          background-color: color(primary);
+          border-color: color(primary);
+        }
+        & + label::after {
+          opacity: 1;
+        }
+      }
+
+      // Recreate the focus state that is on the hidden form element.
+      &:focus + label::before {
+        outline: 0.2em auto color(primary);
+        outline: 0.2em auto -webkit-focus-ring-color;
+        outline-offset: 0.2em;
+      }
+    }
+  }
+
+  // We are going to create a custom radio button style by customizing the label.
+  .gfield_radio .gchoice {
+    margin-block-end: 0.75rem;
+
+    label {
+      font-weight: var(--wp--custom--font-weight--normal);
+    }
+
+    input[type="radio"] {
+      + label {
+        // The before element holds the empty radio button circle.
+        &::before {
+          border: 2px solid color(contrast);
+          background: color(grey-100);
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 1.5em;
+          width: 1.5em;
+          border-radius: 50%;
+        }
+
+        // The after element holds the solid circle that indicates a selection.
+        &::after {
+          content: "";
+          background-color: color(primary);
+          border-radius: 50%;
+          position: absolute;
+          top: 0.28em;
+          left: 0.28em;
+          height: 1em;
+          width: 1em;
+          opacity: 0;
+          transition: opacity 0.2s ease-in-out;
+        }
+      }
+
+      // Show the solid circle when the now-hidden form element is selected.
+      &:checked + label::after {
+        opacity: 1;
+      }
+
+      // Recreate the focus state that is on the hidden form element.
+      &:focus-visible + label::before {
+        outline: 0.2em auto color(primary);
+        outline: 0.2em auto -webkit-focus-ring-color;
+        outline-offset: 0.2em;
+      }
+    }
+  }
+
+  /* File Upload */
+  .gfield--type-fileupload {
+    input {
+      border: solid 2px var(--wp--preset--color--contrast);
+      border-radius: 0.5rem;
+      padding: 0.5em;
+    }
+
+    .gform_button_select_files  {
+      @include btn;
+
+      @include breakpoint($m-break) {
+        width: auto;
+      }
+    }
+
+    .gform_fileupload_rules,
+    .gfield_description {
+      padding-top: 0 !important;
+    }
+    .gfield_description {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  /* Time input */
+  .ginput_container_time {
+    min-width: 5rem !important;
+    max-width: 5rem !important;
+  }
+
+  /* Submit & Next buttons. */
+  .gform_footer,
+  .gform_page_footer {
+    input[type=button],
+    input[type=submit] {
+      @include btn;
+    }
+    .gform_previous_button {
+      color: var(--wp--preset--color--contrast) !important;
+    }
+  }
+}
+
+/* On smaller screens, make the fields appear slightly smaller. */
+@media only screen and (max-width: $m-break) {  
+  .gform_wrapper.gravity-theme {
+    input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not(
+        [type="file"]
+      ) {
+      line-height: 1 !important;
+      min-height: 32px;
+    }
+  }
+}
+
+// =====  Footer Newsletter Form
+.site-footer .gform_wrapper.gravity-theme form {
+	input[type="email"] {
+		border-radius: 0;
+	}
+
+	.gform_fields .gfield .gfield_label {
+		color: color(grey-100);
+		font-size: var(--wp--preset--font-size--medium);
+		font-weight: var(--wp--custom--font-weight--bold);
+		line-height: rem(35);
+		margin-bottom: 1rem;
+
+		.gfield_required {
+			color: color(primary-60);
+		}
+	}
+
+	.gfield input.large,
+	.gfield select.large {
+		background-color: transparent;
+		border-color: color(grey-100);
+		color: color(grey-100) !important;
+		font-size: var(--wp--preset--font-size--base);
+	}
+
+	.gform_footer input[type="submit"] {
+		background-color: color(primary-40);
+		border-color:  color(primary-40);
+		color: color(grey-100);
+		font-size: var(--wp--preset--font-size--base);
+		padding: 1rem;
+
+		&:hover {
+			background-color: color(primary-40) !important;
+			border-color: color(grey-100);
+			cursor: pointer;
+		}
+	}
+
+.gfield_error label {
+		color: var(--wp--preset--color--primary);
+	}
+
+	.gform_validation_errors {
+		padding: 8px 8px 8px 48px;
+	}
+
+	.gfield_validation_message,
+	.validation_message {
+		font-size: 0.875rem;
+		padding: 5px;
+	}
+}
