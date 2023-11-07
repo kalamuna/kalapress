@@ -1,6 +1,6 @@
 # ignore node dependency directories
-KalaPress/node_modules/
-KalaPress/node_modules/**
+node_modules/
+node_modules/**
 
 # ignore log files and databases
 *.log
