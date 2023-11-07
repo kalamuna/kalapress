@@ -29,15 +29,12 @@ KalaPress is provided on an as-is basis in the state Kalamuna uses in their day-
 ## Installation & Use
 
 ### Installation
-1. Download the ZIP file from the GitHub repo.
-2. Log in to your WordPress dashboard.
-3. Go to Appearance » Themes and click on the ‘Add New’ button at the top.
-4. Click on the ‘Upload Theme’ button.
-5. Click on ‘Choose from’ and select the .zip file that you downloaded earlier.
-6. Click on the ‘Install Now’ button.
-7. Once your theme is installed, you will see a ‘Theme installed successfully’ message. You’ll also see links to preview or activate your theme. 
-8. To start using this theme on your WordPress website, just click on ‘Activate’.
+KalaPress requires PHP & Composer to be installed, or you need to have a local environment that provides it for you like MAMP, Local by Flywheel, Lando, etc. 
 
+1. Either download the ZIP file from the repo or clone it into your local wp-content/themes directory.
+2. In the KalaPress folder, run `composer install`.
+3. Choose & activate the theme in the WordPress Dashboard.
+4. Once the theme is installed, the following sections describe how to monitor and compile the theme for use.
 
 ### Style Compilation
 
@@ -594,4 +591,3 @@ An example of color options that we typically disable in theme.json:
 - **inc folder** This folder contains various sample post types, taxonomies, acf_fields, and acf blocks. These can be adjusted, duplicated, or deleted.
 - **class autoloader** This is the code that auto loads the classes in the `classes` folder. There is usually no need to touch this file
 - **sass compilation** The default Underscores sass/css folder structure has been adjusted slightly. Sass files are stored in `/sass` and they complile into `/css`
-- **KWP prefix** Many parts of the code/files use a `KWP` prefix. This is something I chose for namespacing and organizational purposes. It is short for Kalamuna WordPress.
