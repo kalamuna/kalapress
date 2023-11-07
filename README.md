@@ -49,23 +49,23 @@ In the terminal, go to `/wp-content/themes/kalapress-theme` and run `npm install
 While you're working on SCSS, JS, and ACF Block files, you can run `npm run start` to auto compile any changes you've made. Browsersync should be supported. 
 
 #### Compile Files
-To compile for production, you can run `npm run build` and it will place the compiled ACF Block files and Theme CSS and JS in the /wp-content/themes/kalapress-theme/build folder.
+To compile for production, you can run `npm run build` and it will place the compiled ACF Block files and Theme CSS and JS in the `/wp-content/themes/kalapress-theme/build` folder.
 
 ### Adding custom blocks
 
 #### ACF Blocks
 Building blocks using Advanced Custom Fields Pro (ACF) is a fast and relatively simple method of creating custom Gutenberg blocks. The main drawbacks to creating via this method are a) it’s not open source and is dependent on a paid plugin, and b) the “Preview” in the editor doesn’t at all match the output, which can be confusing for users.
 
-1. Create a new folder in blocks/acf with the name of your desired block, for instance card--featured
-2. Create a file with the same name as the folder for rendering the contents, in this case card--featured.php
-3. Create a block.json file in that new folder, with the relevant info filled out
+1. Create a new folder in blocks/acf with the name of your desired block, for instance `card--featured`
+2. Create a file with the same name as the folder for rendering the contents, in this case `card--featured.php`
+3. Create a `block.json` file in that new folder, with the relevant info filled out
 
 ```
 {
   "$schema": "https://schemas.wp.org/trunk/block.json%22, 
   "apiVersion": 3,
   "name": "acf/card--featured",
-  "title": "Fastrak - Card Featured",
+  "title": "Kalamuna - Card Featured",
   "description": "Display a clickable block of content with a featured image, headline, and text.",
   "category": "theme",
   "icon": "images-alt2",
@@ -96,13 +96,13 @@ Building blocks using Advanced Custom Fields Pro (ACF) is a fast and relatively 
 }
 
 ```
-Note that renderTemplate will refer to the php file in the same folder.
+Note that `renderTemplate` will refer to the php file in the same folder.
 
-4. Create an scss file in the same folder with the same name, in this case card--featured.scss. Add a reference to this file in block.json so it gets imported via the “style” attribute as in the example.
-5. Create a js file in the same folder with the same name, in this case card--featured.js. Add a reference to this file in block.json so it gets imported via the "script" attribute as in the example. 
-    1. Other values here can control which scripts (and styles) get loaded in the editor or the view only, see Metadata in block.json | Block Editor Handbook | WordPress Developer Resources 
-    2. The first line in the js file should import the scss file, like 
-3. In Terminal, run npm run build:blocks:acf so the block is compiled and available in the CMS. If this fails, the most likely explanation is a comma at a line in block.json that doesn't have another attribute after it.
+4. Create an `.scss` file in the same folder with the same name, in this case `card--featured.scss`. Add a reference to this file in `block.json` so it gets imported via the “style” attribute as in the example.
+5. Create a js file in the same folder with the same name, in this case `card--featured.js`. Add a reference to this file in `block.json` so it gets imported via the "script" attribute as in the example. 
+    1. Other values here can control which scripts (and styles) get loaded in the editor or the view only, see [Metadata in `block.json` | Block Editor Handbook | WordPress Developer Resources](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#script) 
+    2. The first line in the js file should import the scss file, like `import './card--featured.scss'`;
+3. In Terminal, run `npm run build:blocks:acf` so the block is compiled and available in the CMS. If this fails, the most likely explanation is a comma at a line in `block.json` that doesn't have another attribute after it.
 4. Create a Field Group in ACF with the required fields for your block, and output them in the render php file.
 
 #### Adding a new Native Static block
@@ -119,9 +119,9 @@ Font Sizes for our WordPress themes can be adjusted through the theme.json file 
 
 There are three key/value pairs to look for:
 
-- slug: the unique identifier used in the custom CSS variable. 
-- size: the CSS font-size value (preferably using the rem unit).
-- name: the name that appears in the WordPress editor.
+- `slug`: the unique identifier used in the custom CSS variable. 
+- `size`: the CSS font-size value (preferably using the rem unit).
+- `name`: the name that appears in the WordPress editor.
 ```
 {
   "settings": {
@@ -150,9 +150,9 @@ There are three key/value pairs to look for:
 
 These font settings can then be referenced throughout the theme using their associated CSS variables:
 
-- var(--wp--preset--font-size--x-small)
-- var(--wp--preset--font-size--small)
-- var(--wp--preset--font-size--base)
+- `var(--wp--preset--font-size--x-small)`
+- `var(--wp--preset--font-size--small)`
+- `var(--wp--preset--font-size--base)`
 
 The font-size options in our themes typically range from: x-small, small, base, medium-small, medium, medium-large, large, x-large, xx-large, xxx-large.
 
@@ -161,7 +161,7 @@ In most cases, you'll only need to update the “size” values. If you need to 
 #### Fluid typography
 Fluid typography responsively scales font sizes depending on the viewport width. This allows fonts to smoothly scale between minimum and maximum sizes.
 
-By default, WordPress disables fluid typography, but we enable it in most of our themes. To see if fluid typography is enabled, look for these settings in theme.json:
+By default, WordPress disables fluid typography, but we enable it in most of our themes. To see if fluid typography is enabled, look for these settings in `theme.json`:
 
 ```
 {
@@ -175,9 +175,9 @@ By default, WordPress disables fluid typography, but we enable it in most of our
 
 Once fluid typography is enabled, there are some additional settings that need to be added to your font size option. 
 
-- Inside "fluid", enter your min and max font-size values.
-- min: the minimum font size. This is shown on viewports below 768px. 
-- max: The maximum font size. This is shown on viewports above 1600px.
+- Inside "fluid", enter your `min` and `max` `font-size` values.
+- `min`: the minimum font size. This is shown on viewports below 768px. 
+- `max`: The maximum font size. This is shown on viewports above 1600px.
 
 ```
 {
@@ -203,7 +203,7 @@ WordPress uses the clamp() function to resize your font-sizes based on the min a
 
 #### Disabling Fluid Typography
 
-In some cases, you may want to disable fluid typography for a specific font option. To disable it, set the value for fluid to false like so:
+In some cases, you may want to disable fluid typography for a specific font option. To disable it, set the value for `fluid` to false like so:
 
 ```
 {
@@ -227,7 +227,7 @@ In some cases, you may want to disable fluid typography for a specific font opti
 
 ##### Setting the default font size for your theme
 
-To set the default font-size for your theme, enter a fontSize value under styles.typography.fontSize.
+To set the default font-size for your theme, enter a `fontSize` value under `styles.typography.fontSize`.
 
 ```
 {
@@ -247,7 +247,7 @@ These settings are outputted to the websites <body> tag like so:
 
 #### Add font sizes to specific blocks
 
-To add a font size to a specific block, enter a fontSize value under `styles.blocks.blockname.typography`. In the example below, we’re styling our buttons to use the large font-size option that we added to our settings.
+To add a font size to a specific block, enter a `fontSize` value under `styles.blocks.blockname.typography`. In the example below, we’re styling our buttons to use the large `font-size` option that we added to our settings.
 
 ```
 {
@@ -263,12 +263,12 @@ To add a font size to a specific block, enter a fontSize value under `styles.blo
 }
 ```
 
-When entering a fontSize value, any valid CSS value is accepted. However, it’s recommended to use one of the fontSize option presets that we have already added in our theme settings so that we can keep things consistent.
+When entering a `fontSize` value, any valid CSS value is accepted. However, it’s recommended to use one of the `fontSize` option presets that we have already added in our theme settings so that we can keep things consistent.
 
 ##### Disabling Font Options
 We choose to disable many of the font options that WordPress enables by default. We do this to help keep the editor options within design restrictions.
 
-An example of font options that we typically disable in theme.json:
+An example of font options that we typically disable in `theme.json`:
 
 ```
 {
@@ -289,7 +289,7 @@ An example of font options that we typically disable in theme.json:
 ### Layout & Spacing Options
 #### Layout settings in theme.json
 
-Container widths for our WordPress themes can be adjusted through the theme.json file. There are two key/value pairs to look for:
+Container widths for our WordPress themes can be adjusted through the `theme.json` file. There are two key/value pairs to look for:
 
 - `contentSize` sets the default width of the page container, blocks in the editor, and blocks in the front-end.
 - `wideSize` activates the wide width feature and sets the width for wide blocks that extend past the page container.
@@ -306,7 +306,7 @@ Container widths for our WordPress themes can be adjusted through the theme.json
 }
 ```
 
-**Note**: It's recommended to use the rem unit when adding width values.
+**Note**: It's recommended to use the `rem` unit when adding width values.
 
 These settings can be referenced throughout the theme using their associated CSS variables:
 
@@ -338,7 +338,7 @@ In the editor sidebar under the Dimensions settings, users can choose from the x
 *Example of a Medium bottom margin being applied to a block. 
 Note: Some blocks only support top and bottom margins.*
 
-We have added four presets: X-Small, Small, Medium, and Large. Spacing sizes can be adjusted in theme.json under settings.spacing.spacingSizes.
+We have added four presets: X-Small, Small, Medium, and Large. Spacing sizes can be adjusted in `theme.json` under `settings.spacing.spacingSizes`.
 
 Some of the sizes have been added using `clamp()` so that they are responsive. More information about the `clamp()` function: [clamp() - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp). When entering new size values, it's recommended to use `rem` for the units.
 
@@ -390,11 +390,11 @@ If you apply margin or padding settings directly into your block pattern, the Di
 
 #### Disable Spacing settings for specific blocks
 
-These spacing settings are available for all core blocks that support spacing. See Core Blocks Reference | Block Editor Handbook | WordPress Developer Resources to view which core blocks support padding and margins.
+These spacing settings are available for all core blocks that support spacing. See [Core Blocks Reference | Block Editor Handbook | WordPress Developer Resources](https://developer.wordpress.org/block-editor/reference-guides/core-blocks/) to view which core blocks support padding and margins.
 
-In some cases, you may not want to enable this feature, so there is an option to disable it for specific blocks. To disable, set margin or padding to false under settings.blocks.core/block-name.spacing
+In some cases, you may not want to enable this feature, so there is an option to disable it for specific blocks. To disable, set `margin` or `padding` to `false` under `settings.blocks.core/block-name.spacing`
 
-Theme.json settings for disabling spacing for core blocks:
+#### Theme.json settings for disabling spacing for core blocks:
 
 ```
 {
@@ -415,7 +415,7 @@ Theme.json settings for disabling spacing for core blocks:
 
 #### Theme Color settings in theme.json
 
-The KalaPress theme color palette and gradients can be modified through the theme.json file under settings.color.palette and settings.color.gradients.
+The KalaPress theme color palette and gradients can be modified through the `theme.json` file under `settings.color.palette` and `settings.color.gradients`.
 
 There are three key/value pairs to look for:
 
@@ -437,7 +437,7 @@ The main colors for the website should be added through `theme.json`, but there 
 
 Once you’ve added your color values to `theme.json`, it’s important to update the Brand Theme Color values in `src/sass/settings/_color.scss` as well.
 
-`Theme.json` setting examples for palettes and gradients:
+#### Theme.json setting examples for palettes and gradients:
 
 ```
 {
@@ -559,7 +559,7 @@ In some cases, you may want to disable the ability to change colors and gradient
 
 We choose to disable many of the color and gradient options that WordPress enables by default. We do this to help keep the editor options within design restrictions.
 
-An example of color options that we typically disable in theme.json:
+An example of color options that we typically disable in `theme.json`:
 
 ```
 {
