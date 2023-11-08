@@ -10,26 +10,37 @@ Requires PHP: 7.4
 
 License: GPLv2 or later
 
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: <http://www.gnu.org/licenses/gpl-2.0.html>
 
 ## Description
 
-Work *with* WordPress, not against it. 
+Work *with* WordPress, not against it.
 
-KalaPress serves as a starter hybrid theme for [Kalamuna](https://kalamuna.com)’s clients. KalaPress is open source and built with the same tools that WordPress developers use every day: Gutenberg, CSS/SASS, JavaScript, and HTML. It is lightweight and as simple to maintain and use as possible, is easy to get started with, and compiles very quickly for everyday use.
+KalaPress serves as a starter hybrid theme for [Kalamuna](https://kalamuna.com)’s clients.
+KalaPress is open source and built with the same tools that WordPress developers use every day:
+Gutenberg, CSS/SASS, JavaScript, and HTML.
+It is lightweight and as simple to maintain and use as possible, is easy to get started with, and compiles very quickly for everyday use.
 
 Our thoughtful, integrated approach makes it easy to integrate unique branding into patterns, blocks, and elements that enhance the WordPress experience. This “Guided Design” approach to content development means the site can grow and evolve over time without losing what makes it unique. By leveraging the Gutenberg editor we can provide freedom and flexibility to front-line content entry people while ensuring the overall site remains consistent and on-brand.
 
 ## Audience
-KalaPress is targeted to intermediate-level WordPress developers working either singly or as part of an agency. Knowledge of SASS, NPM, and theme.json are helpful but not strictly necessary. It is intended to be a starting point for easily building client-specific sites. 
+
+KalaPress is targeted to intermediate-level WordPress developers working either singly or as part of an agency. Knowledge of SASS, NPM, and theme.json are helpful but not strictly necessary. It is intended to be a starting point for easily building client-specific sites.
 
 ## Disclaimer
+
 KalaPress is provided on an as-is basis in the state Kalamuna uses in their day-to-day workflow. It is a work in progress as standards and practices change. We provide it publicly as a service to the open source community but provide no guarantees or warranties for its use.
+
+We are constantly working and contributing to this repo to make it as straightforward and easy to use and possible. If you have any questions or suggestions, please feel free to open an issue or submit a pull request.
+
+Note that this theme has been converted from a fully classic theme into a hybrid one with a more modern way of handling things. there are parts that are in place from the previous development efforts, and will be removed soon.
+Hence you may find some redundant and non-working code in the theme. We are working on cleaning it up and creating an extensive documentation for it.
 
 ## Installation & Use
 
 ### Installation
-KalaPress requires PHP & Composer to be installed, or you need to have a local environment that provides it for you like MAMP, Local by Flywheel, Lando, etc. 
+
+KalaPress requires PHP & Composer to be installed, or you need to have a local environment that provides it for you like MAMP, Local by Flywheel, Lando, etc.
 
 1. Either download the ZIP file from the repo or clone it into your local wp-content/themes directory.
 2. In the KalaPress folder, run `composer install`.
@@ -41,28 +52,35 @@ KalaPress requires PHP & Composer to be installed, or you need to have a local e
 NPM is used to compile all SCSS, minify JS/CSS, and optimize images. Here are some helpful commands.
 
 #### First Time Run
+
 In the terminal, go to `/wp-content/themes/kalapress-theme` and run `npm install`. This will install all the necessary node modules to do the various commands. You only need to do this once, when you first setup the theme in your local dev environment.
 
 **Note**: This project is using node v16.
 
 #### Watch Files
-While you're working on SCSS, JS, and ACF Block files, you can run `npm run start` to auto compile any changes you've made. Browsersync should be supported. 
+
+While you're working on SCSS, JS, and ACF Block files, you can run `npm run start` to auto compile any changes you've made. Browsersync should be supported.
 
 #### Compile Files
+
 To compile for production, you can run `npm run build` and it will place the compiled ACF Block files and Theme CSS and JS in the `/wp-content/themes/kalapress-theme/build` folder.
 
 ### Adding custom blocks
 
 #### ACF Blocks
-Building blocks using Advanced Custom Fields Pro (ACF) is a fast and relatively simple method of creating custom Gutenberg blocks. The main drawbacks to creating via this method are a) it’s not open source and is dependent on a paid plugin, and b) the “Preview” in the editor doesn’t at all match the output, which can be confusing for users.
+
+Building blocks using Advanced Custom Fields Pro (ACF) is a fast and relatively simple method of creating custom Gutenberg blocks.
+The main drawbacks to creating via this method are:
+a) it’s not open source and is dependent on a paid plugin, and
+b) the “Preview” in the editor doesn’t at all match the output, which can be confusing for users.
 
 1. Create a new folder in blocks/acf with the name of your desired block, for instance `card--featured`
 2. Create a file with the same name as the folder for rendering the contents, in this case `card--featured.php`
 3. Create a `block.json` file in that new folder, with the relevant info filled out
 
-```
+```json
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json%22, 
+  "$schema": "https://schemas.wp.org/trunk/block.json%22,
   "apiVersion": 3,
   "name": "acf/card--featured",
   "title": "Kalamuna - Card Featured",
@@ -96,11 +114,12 @@ Building blocks using Advanced Custom Fields Pro (ACF) is a fast and relatively 
 }
 
 ```
+
 Note that `renderTemplate` will refer to the php file in the same folder.
 
 4. Create an `.scss` file in the same folder with the same name, in this case `card--featured.scss`. Add a reference to this file in `block.json` so it gets imported via the “style” attribute as in the example.
-5. Create a js file in the same folder with the same name, in this case `card--featured.js`. Add a reference to this file in `block.json` so it gets imported via the "script" attribute as in the example. 
-    1. Other values here can control which scripts (and styles) get loaded in the editor or the view only, see [Metadata in `block.json` | Block Editor Handbook | WordPress Developer Resources](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#script) 
+5. Create a js file in the same folder with the same name, in this case `card--featured.js`. Add a reference to this file in `block.json` so it gets imported via the "script" attribute as in the example.
+    1. Other values here can control which scripts (and styles) get loaded in the editor or the view only, see [Metadata in `block.json` | Block Editor Handbook | WordPress Developer Resources](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#script)
     2. The first line in the js file should import the scss file, like `import './card--featured.scss'`;
 3. In Terminal, run `npm run build:blocks:acf` so the block is compiled and available in the CMS. If this fails, the most likely explanation is a comma at a line in `block.json` that doesn't have another attribute after it.
 4. Create a Field Group in ACF with the required fields for your block, and output them in the render php file.
@@ -113,16 +132,18 @@ Note that `renderTemplate` will refer to the php file in the same folder.
 4. When you’re ready to actually build the block, go to Terminal in the project root and start the build; in this case you’d probably want to use `npm run start:build:blocks:native` so you are only compiling the relevant parts of the theme and not the whole thing.
 
 ### Font Options
+
 #### Font Size settings in theme.json
 
 Font Sizes for our WordPress themes can be adjusted through the theme.json file under settings.typography.fontSizes.
 
 There are three key/value pairs to look for:
 
-- `slug`: the unique identifier used in the custom CSS variable. 
+- `slug`: the unique identifier used in the custom CSS variable.
 - `size`: the CSS font-size value (preferably using the rem unit).
 - `name`: the name that appears in the WordPress editor.
-```
+
+```json
 {
   "settings": {
     "typography": {
@@ -159,11 +180,12 @@ The font-size options in our themes typically range from: x-small, small, base, 
 In most cases, you'll only need to update the “size” values. If you need to add additional font-size options, try to keep the naming convention the same and place them in a sensical order within the fontSize array.
 
 #### Fluid typography
+
 Fluid typography responsively scales font sizes depending on the viewport width. This allows fonts to smoothly scale between minimum and maximum sizes.
 
 By default, WordPress disables fluid typography, but we enable it in most of our themes. To see if fluid typography is enabled, look for these settings in `theme.json`:
 
-```
+```json
 {
   "settings": {
     "typography": {
@@ -173,13 +195,13 @@ By default, WordPress disables fluid typography, but we enable it in most of our
 }
 ```
 
-Once fluid typography is enabled, there are some additional settings that need to be added to your font size option. 
+Once fluid typography is enabled, there are some additional settings that need to be added to your font size option.
 
 - Inside "fluid", enter your `min` and `max` `font-size` values.
-- `min`: the minimum font size. This is shown on viewports below 768px. 
+- `min`: the minimum font size. This is shown on viewports below 768px.
 - `max`: The maximum font size. This is shown on viewports above 1600px.
 
-```
+```json
 {
   "settings": {
     "typography": {
@@ -199,13 +221,13 @@ Once fluid typography is enabled, there are some additional settings that need t
 }
 ```
 
-WordPress uses the clamp() function to resize your font-sizes based on the min and max values you enter. To read more about clamp() visit: [clamp() - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp).  
+WordPress uses the clamp() function to resize your font-sizes based on the min and max values you enter. To read more about clamp() visit: [clamp() - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp).
 
 #### Disabling Fluid Typography
 
 In some cases, you may want to disable fluid typography for a specific font option. To disable it, set the value for `fluid` to false like so:
 
-```
+```json
 {
   "settings": {
     "typography": {
@@ -229,7 +251,7 @@ In some cases, you may want to disable fluid typography for a specific font opti
 
 To set the default font-size for your theme, enter a `fontSize` value under `styles.typography.fontSize`.
 
-```
+```json
 {
   "styles": {
     "typography": {
@@ -241,15 +263,17 @@ To set the default font-size for your theme, enter a `fontSize` value under `sty
 
 These settings are outputted to the websites <body> tag like so:
 
+```css
     body {
         font-size: var(--wp--preset--font-size--medium);
     }
+```
 
 #### Add font sizes to specific blocks
 
 To add a font size to a specific block, enter a `fontSize` value under `styles.blocks.blockname.typography`. In the example below, we’re styling our buttons to use the large `font-size` option that we added to our settings.
 
-```
+```json
 {
   "styles": {
     "blocks": {
@@ -266,15 +290,16 @@ To add a font size to a specific block, enter a `fontSize` value under `styles.b
 When entering a `fontSize` value, any valid CSS value is accepted. However, it’s recommended to use one of the `fontSize` option presets that we have already added in our theme settings so that we can keep things consistent.
 
 ##### Disabling Font Options
+
 We choose to disable many of the font options that WordPress enables by default. We do this to help keep the editor options within design restrictions.
 
 An example of font options that we typically disable in `theme.json`:
 
-```
+```json
 {
   "settings": {
     "typography": {
-          "customFontSize": false, 
+          "customFontSize": false,
             "dropCap": false,
             "lineHeight": false,
             "letterSpacing": false,
@@ -287,6 +312,7 @@ An example of font options that we typically disable in `theme.json`:
 ```
 
 ### Layout & Spacing Options
+
 #### Layout settings in theme.json
 
 Container widths for our WordPress themes can be adjusted through the `theme.json` file. There are two key/value pairs to look for:
@@ -295,7 +321,8 @@ Container widths for our WordPress themes can be adjusted through the `theme.jso
 - `wideSize` activates the wide width feature and sets the width for wide blocks that extend past the page container.
 
 **Theme.json Settings:**
-```
+
+```json
 {
   "settings": {
     "layout": {
@@ -313,7 +340,7 @@ These settings can be referenced throughout the theme using their associated CSS
 - `var(--wp--style--global--content-size)`
 - `var(--wp--style--global--wide-size)`
 
-For KalaPress, we have leveraged these CSS variables for layout mixins and have assigned those styles to alignment utility classes. 
+For KalaPress, we have leveraged these CSS variables for layout mixins and have assigned those styles to alignment utility classes.
 
 **Available Mixins:**
 
@@ -335,7 +362,7 @@ In the editor sidebar under the Dimensions settings, users can choose from the x
 
 ![layout-spacing-1](https://github.com/kalamuna/kalapress-pro/assets/11493414/804dcc20-0cbb-4ca3-9ddf-80a90bf173e6)
 
-*Example of a Medium bottom margin being applied to a block. 
+*Example of a Medium bottom margin being applied to a block.
 Note: Some blocks only support top and bottom margins.*
 
 We have added four presets: X-Small, Small, Medium, and Large. Spacing sizes can be adjusted in `theme.json` under `settings.spacing.spacingSizes`.
@@ -343,7 +370,8 @@ We have added four presets: X-Small, Small, Medium, and Large. Spacing sizes can
 Some of the sizes have been added using `clamp()` so that they are responsive. More information about the `clamp()` function: [clamp() - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp). When entering new size values, it's recommended to use `rem` for the units.
 
 **Theme.json Spacing Sizes Settings:**
-```
+
+```json
 {
   "settings": {
     "spacing": {
@@ -394,9 +422,9 @@ These spacing settings are available for all core blocks that support spacing. S
 
 In some cases, you may not want to enable this feature, so there is an option to disable it for specific blocks. To disable, set `margin` or `padding` to `false` under `settings.blocks.core/block-name.spacing`
 
-#### Theme.json settings for disabling spacing for core blocks:
+#### Theme.json settings for disabling spacing for core blocks
 
-```
+```json
 {
   "settings": {
     "blocks": {
@@ -419,11 +447,11 @@ The KalaPress theme color palette and gradients can be modified through the `the
 
 There are three key/value pairs to look for:
 
-- `slug`: the unique identifier used in the custom CSS variable. 
+- `slug`: the unique identifier used in the custom CSS variable.
 - `name`: the name that appears in the WordPress editor.
-- `color` or `gradient`: The CSS color value. 
+- `color` or `gradient`: The CSS color value.
 
-#### Theme.json Color Slug naming:
+#### Theme.json Color Slug naming
 
 Instead of using color-specific slugs, we recommend using base, contrast, and sequential slugs like primary, secondary, tertiary, quaternary, etc.
 
@@ -431,15 +459,15 @@ Instead of using color-specific slugs, we recommend using base, contrast, and se
 - `contrast`: the color for elements on the page, ie. text, headings, lists, etc.
 - `primary`, `secondary`, `tertiary`, etc: the accent colors.
 
-This method promotes development with Global Styles in mind so that we can more efficiently adapt our themes to our client's brands. 
+This method promotes development with Global Styles in mind so that we can more efficiently adapt our themes to our client's brands.
 
-The main colors for the website should be added through `theme.json`, but there are additional color variables available to use in `src/sass/settings/_color.scss`. These include: greyscale colors, lightened and darkened versions of the primary & secondary colors, etc. 
+The main colors for the website should be added through `theme.json`, but there are additional color variables available to use in `src/sass/settings/_color.scss`. These include: greyscale colors, lightened and darkened versions of the primary & secondary colors, etc.
 
 Once you’ve added your color values to `theme.json`, it’s important to update the Brand Theme Color values in `src/sass/settings/_color.scss` as well.
 
-#### Theme.json setting examples for palettes and gradients:
+#### Theme.json setting examples for palettes and gradients
 
-```
+```json
 {
   "settings": {
     "color": {
@@ -482,7 +510,7 @@ These color settings can then be referenced throughout the theme using their ass
 - `var(--wp--preset--color--primary)`
 - `var(--wp--preset--gradient--primary-to-transparent)`
 
-Additionally, new class names are created that reference these color variables. These class names are used within the block editor and front-end. 
+Additionally, new class names are created that reference these color variables. These class names are used within the block editor and front-end.
 
 - background color class: `.has-primary-background-color`
 - text color class: `.has-primary-color`
@@ -491,13 +519,13 @@ Additionally, new class names are created that reference these color variables. 
 #### Adding color palettes and gradients for specific blocks
 
 An example of what this would look like in the editor for the new color palette.
-While the color variables from the previous steps are available to use across your entire theme, there is an option to add separate color palettes and gradients for individual blocks as well. This feature might be helpful if you want to limit a block to use certain colors and gradients. 
+While the color variables from the previous steps are available to use across your entire theme, there is an option to add separate color palettes and gradients for individual blocks as well. This feature might be helpful if you want to limit a block to use certain colors and gradients.
 
 - For color palettes, add your color values under: `settings.blocks.core/blockname.color.palette`.
 - For gradients, add your gradient values under:  `settings.blocks.core/blockname.color.gradients`.
 - Color palette and gradients added to a Button block in theme.json:
 
-```
+```json
 {
   "settings": {
     "blocks": {
@@ -538,7 +566,7 @@ While the color variables from the previous steps are available to use across yo
 
 In some cases, you may want to disable the ability to change colors and gradients within a block. To do this, you would alter the properties like so:
 
-```
+```json
 {
   "settings": {
     "blocks": {
@@ -561,7 +589,7 @@ We choose to disable many of the color and gradient options that WordPress enabl
 
 An example of color options that we typically disable in `theme.json`:
 
-```
+```json
 {
   "settings": {
     "color": {
@@ -576,16 +604,16 @@ An example of color options that we typically disable in `theme.json`:
 }
 ```
 
-## Some key files and folders are:
+## Some key files and folders are
 
 - **Settings.php** this includes a reference to all the post types, taxonomies, acf_fields, and acf_blocks that should be loaded
 - **classes/autoloader.php** this file automatically loads classes without explicity using `include` or `require`. It is able to do this since the namespace for the classes and folder structure match up. So this matching should be maintained.
 - **classes/class-Theme.php** This file loads all the references set in Settings.php. It also loads various other parts of the theme
 - **classes/KWP/Theme/\*.php** These are all of the classes for the theme. Each class handles a different aspect of functionality, keeping everything modular and organized
 
-## Other important notes:
+## Other important notes
 
-- **acf_json folder** ACF provides functionality out of the box such that if there is an acf_json folder specified in the theme, data releated to any fields or field groups will be stored there as well as the website. More info here https://www.advancedcustomfields.com/resources/local-json/. Although this is helpful during development, once the necessary fields have been established and staging/production servers have been set up, this folder should be deleted.
+- **acf_json folder** ACF provides functionality out of the box such that if there is an acf_json folder specified in the theme, data releated to any fields or field groups will be stored there as well as the website. More info here <https://www.advancedcustomfields.com/resources/local-json/>. Although this is helpful during development, once the necessary fields have been established and staging/production servers have been set up, this folder should be deleted.
 
   The fields should be loaded via PHP and specified in the `inc/acf_field_groups` folder. There is a `readme.md` file in that folder that can be referred to for more info. Loading via PHP avoids confusion as to where fields have been specified (production, staging, local, etc) and prevents them from being manipulated in the WP admin.
 - **inc folder** This folder contains various sample post types, taxonomies, acf_fields, and acf blocks. These can be adjusted, duplicated, or deleted.

@@ -38,22 +38,42 @@ function space( $function ) {
 	return __NAMESPACE__ . "\\$function";
 }
 
-
 /**
  * Autoload all of the classes.
  */
-require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+$autoload_path = dirname( __FILE__ ) . '/vendor/autoload.php';
+if ( ! file_exists( $autoload_path ) ) {
+	require_once KLP_DIR . '/Core/Util/Logger.php';
+
+	Core\Util\Logger::logAndNotice(
+		'Error: Urgent developer action required: Composer autoloader not found. Please run composer install in the theme directory.',
+		'error'
+	);
+
+	return;
+}
+// If the autoloader file exists, require it and continue as normal.
+require_once $autoload_path;
 
 /**
  * Instantiate main Theme class
+ * This is the entry point for the theme.
+ * All of the classes are instantiated inside the Theme class.
+ * The Container class is used to manage the dependency injection.
+ *
+ * @see Core/Theme.php
  */
 $theme = new Core\Theme();
-
 
 /**
  * Load theme options.
  */
 include_once get_template_directory() . '/theme-options.php';
+
+/**
+ ************* @TODO: The below parts will be removed/moved to proper files *************
+ *
+ */
 
 /**
  * Register block styles.
