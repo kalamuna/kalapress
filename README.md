@@ -1,20 +1,77 @@
+
 # KalaPress
 
-Contributors: kalamuna
-
-Requires at least: WordPress 6.0
-
-Tested up to: WordPress 6.3.2
-
-Requires PHP: 7.4
+Kalamuna's WordPress Starter that is being used internally to spin up new projects quickly.
 
 License: GPLv2 or later
 
 License URI: <http://www.gnu.org/licenses/gpl-2.0.html>
 
-## Description
+Contributors: [Kalamuna](https://kalamuna.com)
 
-Work *with* WordPress, not against it.
+## Table of Contents
+
+1. **[Features](#-features)**
+2. **[Comes Packed With](#-comes-packed-with)**
+3. **[Rational](#-rational)**
+4. **[Who is This For?](#-who-is-this-for)**
+5. **[Before You Start](#-before-you-start)**
+6. **[Getting Started](#-getting-started)**
+7. **[ 🥋 Conventions](#-conventions)**
+    - [NAMESPACE](#-namespace)
+    - [space() function](#space-function)
+    - [inc folder files](#inc-folder-files)
+    - [Adding functionality to the theme](#adding-functionality-to-the-theme)
+8. **[Config Folder](#-config-folder)**
+    - [AssetsConfig.php](#-1-assetsconfigphp)
+    - [BlockCategoriesConfig.php](#-2-blockcategoriesconfigphp)
+    - [BlockPatternCategoriesConfig.php](#-3-blockpatterncategoriesconfigphp)
+    - [BlocksConfig.php](#-4-blocksconfigphp)
+    - [BlockStylesConfig.php](#-5-blockstylesconfigphp)
+    - [IncludedFunctionsConfig.php](#-6-includedfunctionsconfigphp)
+    - [PostTypesConfig.php](#-7-posttypesconfigphp)
+    - [TaxonomiesConfig.php](#-8-taxonomiesconfigphp)
+9.  **[Inc Folder Structure](#-inc-folder)**
+    - [Post Types](#-1-incpost-types)
+    - [Taxonomies](#-2-inctaxonomies)
+    - [Functions](#-3-incfunctions)
+    - [Template Tags](#-4-inctemplate-tags)
+    - [Plugins Alterations](#-5-incplugins)
+    - [Shortcodes](#-6-incshortcodes)
+    - [WooCommerce](#-7-incwoocommerce)
+
+## ✨ Features
+
+- [x]  🔥 Hybrid approach to theme building which leverages the best of both worlds:
+
+  modern classic PHP + Gutenberg blocks and templates
+
+- [x]  💤 Easily builds and compiles the assets using [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/scripts)
+
+- [x]  📂 Sane, modular folder structure for assets, templates, and classes
+
+- [x]  📦 Separate compilation of theme, editor, admin, and blocks CSS and JS, with the ability to toggle the enqueue of the built assets on/off
+
+- [x]  👍 Composer autoloading for classes and namespaces across the files
+
+- [x]  🔌 Dealing mostly with configuration files to turn stuff on or off
+
+### 🎁 Comes packed with
+
+- [x] Modern PHP
+- [x] Modern CSS (SASS)
+- [x] Modern JS (ES6+)
+- [x] Modern tooling for compiling assets
+- [ ] Linting
+- [ ] Testing
+- [ ] Extensive documentation
+- [ ] Set of pre-made blocks
+- [ ] Set of pre-made templates
+- [ ] Set of pre-made patterns
+
+## 🧠 Rational
+
+***Work with WordPress, not against it.***
 
 KalaPress serves as a starter hybrid theme for [Kalamuna](https://kalamuna.com)’s clients.
 KalaPress is open source and built with the same tools that WordPress developers use every day:
@@ -23,29 +80,224 @@ It is lightweight and as simple to maintain and use as possible, is easy to get 
 
 Our thoughtful, integrated approach makes it easy to integrate unique branding into patterns, blocks, and elements that enhance the WordPress experience. This “Guided Design” approach to content development means the site can grow and evolve over time without losing what makes it unique. By leveraging the Gutenberg editor we can provide freedom and flexibility to front-line content entry people while ensuring the overall site remains consistent and on-brand.
 
-## Audience
+## 📣 Who is this for?
 
-KalaPress is targeted to intermediate-level WordPress developers working either singly or as part of an agency. Knowledge of SASS, NPM, and theme.json are helpful but not strictly necessary. It is intended to be a starting point for easily building client-specific sites.
+❗**Intermediate to advanced-level** WordPress developers working either singly or as part of an agency.
 
-## Disclaimer
+Knowledge of SASS, NPM, and theme.json are helpful and to some extent necessary.
 
-KalaPress is provided on an as-is basis in the state Kalamuna uses in their day-to-day workflow. It is a work in progress as standards and practices change. We provide it publicly as a service to the open source community but provide no guarantees or warranties for its use.
+It is intended to be a starting point for easily building client-specific sites.
+
+## 🔖 Before you start
+
+KalaPress is provided on an **as-is basis** 🤷 in the state Kalamuna uses in their day-to-day workflow. It is a work in progress as standards and practices change. We provide it publicly as a service to the open source community but provide no guarantees or warranties for its use.
 
 We are constantly working and contributing to this repo to make it as straightforward and easy to use and possible. If you have any questions or suggestions, please feel free to open an issue or submit a pull request.
 
-Note that this theme has been converted from a fully classic theme into a hybrid one with a more modern way of handling things. there are parts that are in place from the previous development efforts, and will be removed soon.
-Hence you may find some redundant and non-working code in the theme. We are working on cleaning it up and creating an extensive documentation for it.
 
-## Installation & Use
+⛔ You occasionally may find some redundant and non-working code in the theme.
 
-### Installation
+We are working on cleaning it up and creating an extensive documentation for it. Note that this theme has been converted from a fully classic theme into a hybrid one with a more modern way of handling things. there are parts that are in place from the previous development efforts, and will be removed soon.
 
-KalaPress requires PHP & Composer to be installed, or you need to have a local environment that provides it for you like MAMP, Local by Flywheel, Lando, etc.
+## 🚀 Getting Started
+
+### ⚡️ Requirements
+
+- WordPress >= **6.2.0**, tested up to **6.3.2**
+- PHP >= **7.4**
+- composer >= **2.0.0**
+- node >= **16.0.0**
+- Advanced Custom Fields >= **6.0**
+    - NOTE: We use ACF Pro in our projects and love it. The theme currently uses ACF for some of its functionality. The public version of KalaPress is just born and we are converting from an older setup. This dependency will be removed in the future and made optional. For now, some parts will not work without ACF.
+
+### ⚙️ Installation
+
+KalaPress requires PHP & Composer to be installed, or you need to have a local environment that provides them for you like Lando, DDEV, Local by Flywheel, MAMP, XAMPP, etc. You also need Node and NPM installed.
 
 1. Either download the ZIP file from the repo or clone it into your local wp-content/themes directory.
+
 2. In the KalaPress folder, run `composer install`.
+    - If you don't do that an admin notice in the WordPress dashboard will remind you to do so.
 3. Choose & activate the theme in the WordPress Dashboard.
+
 4. Once the theme is installed, the following sections describe how to monitor and compile the theme for use.
+
+---
+
+### 🥋 Conventions
+
+#### ❗NAMESPACE
+
+All of the files in the `inc`, `Core`, and `Config` directories as well as the `functions.php` file are and **MUST BE** namespaced.
+
+#### ❗`space()` function
+
+Returns the fully qualified name of the function and mostly used in add_action and add_filter like
+
+```php
+add_action( 'init', space( 'my_hooked_function_into_wp' ) );
+```
+
+This is a **MUST** to do any time when you want to hook into WordPress' actions and filters. Otherwise, you will get a fatal error something like
+
+```txt
+Fatal error: Uncaught Error: call_user_func_array(): Argument #1 ($callback) must be a valid callback
+```
+
+#### ❗inc folder files
+
+Generally, it's recommended to have each .php file dedicated to a single function or action, and the name of the file should align with the function it contains, using hyphens instead of underscores in the file name.
+
+So, as and example, if you have a function named `register_block_pattern_categories() {...}`, it should be placed in a file called `register-block-pattern-categories.php`, which is then stored in a suitable sub-directory within /inc.
+
+#### ❗Adding functionality to the theme
+
+When adding a new functionality or module (except blocks of course), in almost all other cases, they should reside inside the `/inc` directory and be namespaced.
+
+This includes custom post types, taxonomies, template-tags, shortcodes, etc. The inc folder is structured for easy organization and maintenance. none of the files that are placed in the inc folder, are loaded by default and all of them must be mentioned inside the respective config classes in the `Config` directory.
+
+### 📂 /Config folder
+
+The `Config` folder, as the name suggests, contains all the configuration classes for the theme.
+
+```console
+Config/
+├── AssetsConfig.php
+├── BlockCategoriesConfig.php
+├── BlockPatternCategoriesConfig.php
+├── BlocksConfig.php
+├── BlockStylesConfig.php
+├── IncludedFunctionsConfig.php
+├── PostTypesConfig.php
+└── TaxonomiesConfig.php
+```
+
+#### 💠 1. AssetsConfig.php
+
+This class is responsible for loading the theme's assets like CSS and JS files. It also has the ability to load the assets in the admin area and the editor area separately.
+
+#### 💠 2. BlockCategoriesConfig.php
+
+This class is responsible for registering the block categories in the editor. It also has the ability to re-order the block categories in the editor so that your custom categories appear at the top.
+
+#### 💠 3.  ~~BlockPatternCategoriesConfig.php: This class is responsible for registering the block pattern categories in the editor.~~
+
+This is under construction. for now use the `inc/functions/register-block-pattern-categories.php` file to register block pattern categories.
+
+#### 💠 4. BlocksConfig.php
+
+This class is responsible for including the **Custom** blocks in the editor. A block is not recognized by WordPress unless the name is mentioned in the config array in this class.
+
+#### 💠 5. BlockStylesConfig.php
+
+This class is responsible for including the block styles in the editor. Read the comments inside the class for more information.
+
+#### 💠 6. IncludedFunctionsConfig.php
+
+This class is responsible for loading the theme's included functions. It looks at the inc folder's sub-directories (except post-types and taxonomies) and loads the files inside them who are present in the array. Read the note below.
+
+#### 💠 7. PostTypesConfig.php
+
+This class is responsible for including the custom post types. There is a very important documentation inside the class that explains how to add a new post type. Please read that carefully.
+
+#### 💠 8. TaxonomiesConfig.php
+
+This class is responsible for including the custom taxonomies. There is a very important documentation inside the class that explains how to add a new taxonomy. Please read that carefully.
+
+❕ **NOTE**:
+
+When adding a new module or functionality in the `inc` directory, you need to mention that new file inside the respective config class.
+
+For example, if you are adding a new custom post type, you need to mention that file inside the `PostTypesConfig` class inside the configuration array. This is how the theme knows about the new file and loads it.
+
+❕ **NOTE**:
+
+There is extensive documentation inside the `Config` classes that explains with examples how to that specific config class works. Please read those comments carefully.
+
+As a todo item, we are working to add those comments to the documentation here as well.
+
+### 📂 /inc folder
+
+Here is where you put theme's essential PHP files, neatly categorized into different directories for efficient organization and easier maintenance. Each sub-directory serves a specific purpose:
+
+#### 💠 1. inc/post-types/
+
+Place your custom post type declarations here. Example files like faqs.php and team_member.php which define custom post types for FAQs and team members, respectively.
+
+- You then go ahead and add the file name into the `PostTypesConfig` class inside the `Config` directory.
+- Please carefully read the comments inside the `PostTypesConfig` class for more information.
+
+#### 💠 2. inc/taxonomies/
+
+This is where you define custom taxonomies. For instance, faq_types.php might contain definitions for different FAQ categories or types.
+
+- You then go ahead and add the file name into the `TaxonomiesConfig` class inside the `Config` directory.
+- Please carefully read the comments inside the `TaxonomiesConfig` class for more information.
+
+#### 💠 3. inc/functions/
+
+This directory contains PHP files for various theme functionalities. For example: `body-classes.php` for adding custom classes to the body tag.
+
+- You then go ahead and add the file name into the `IncludedFunctionsConfig` class inside the `Config` directory.
+
+#### 💠 4. inc/template-tags/
+
+A collection of PHP functions used in your theme templates to keep your code DRY. These might include functions to display breadcrumbs, custom menus, post metadata, etc.
+
+- You then go ahead and add the file name into the `IncludedFunctionsConfig` class inside the `Config` directory.
+
+#### 💠 5. inc/plugins/
+
+Use this to store any modifications or customizations related to plugins. start the file name with the plugin name and then add the functionality name. For example, `yoast-remove-page-source-comments.php` removes the source comments from the Yoast SEO plugin. Sticking to this naming convention will help you quickly find the file you need in the future.
+
+- You then go ahead and add the file name into the `IncludedFunctionsConfig` class inside the `Config` directory.
+
+#### 💠 6. inc/shortcodes/
+
+Store any custom shortcode definitions in this directory (I mean if you are still using that). The .gitkeep file helps keep this directory in your repository even when no shortcodes are defined yet.
+
+- You then go ahead and add the file name into the `IncludedFunctionsConfig` class inside the `Config` directory.
+
+#### 💠 7. inc/woocommerce/
+
+This directory is reserved for any WooCommerce-specific customizations or overrides. The .gitkeep file is there to keep the directory in your project until you add WooCommerce-related files.
+
+- You then go ahead and add the file name into the `IncludedFunctionsConfig` class inside the `Config` directory.
+
+#### 💠 8. inc/any-other-directory-that-makes-sense/
+
+You can create any other directories that make sense for your project. For instance, you might create a directory called `inc/acf-fields/` to store your ACF field definitions.
+
+- You then go ahead and add the file name into the `IncludedFunctionsConfig` class inside the `Config` directory.
+
+```console
+/inc
+ ├── post-types
+ │  ├── faqs.php
+ │  └── team_member.php
+ ├── taxonomies
+ │  └── faq_types.php
+ │  ├── ...
+ │  └── ...
+ ├── functions
+ │  ├── body-classes.php
+ │  ├── ...
+ │  └── ...
+ ├── template-tags
+ │  ├── display-breadcrumbs.php
+ │  └── display-posted-on.php
+ ├── plugins
+ │  ├── yoast-keep-metabox-collapsed.php
+ │  ├── yoast-remove-page-source-comments.php
+ │  ├── gravity-forms-add-signature-field.php
+ │  └── ...
+ ├── shortcodes
+ │  └── .gitkeep
+ └── woocommerce
+    └── modify-checkout-fields.php
+```
+
+---
 
 ### Style Compilation
 
@@ -53,7 +305,7 @@ NPM is used to compile all SCSS, minify JS/CSS, and optimize images. Here are so
 
 #### First Time Run
 
-In the terminal, go to `/wp-content/themes/kalapress-theme` and run `npm install`. This will install all the necessary node modules to do the various commands. You only need to do this once, when you first setup the theme in your local dev environment.
+In the terminal, go to `/wp-content/themes/kalapress` and run `npm install`. This will install all the necessary node modules to do the various commands. You only need to do this once, when you first setup the theme in your local dev environment.
 
 **Note**: This project is using node v16.
 
@@ -63,7 +315,7 @@ While you're working on SCSS, JS, and ACF Block files, you can run `npm run star
 
 #### Compile Files
 
-To compile for production, you can run `npm run build` and it will place the compiled ACF Block files and Theme CSS and JS in the `/wp-content/themes/kalapress-theme/build` folder.
+To compile for production, you can run `npm run build` and it will place the compiled ACF Block files and Theme CSS and JS in the `/wp-content/themes/kalapress/build` folder.
 
 ### Adding custom blocks
 
@@ -603,19 +855,3 @@ An example of color options that we typically disable in `theme.json`:
   }
 }
 ```
-
-## Some key files and folders are
-
-- **Settings.php** this includes a reference to all the post types, taxonomies, acf_fields, and acf_blocks that should be loaded
-- **classes/autoloader.php** this file automatically loads classes without explicity using `include` or `require`. It is able to do this since the namespace for the classes and folder structure match up. So this matching should be maintained.
-- **classes/class-Theme.php** This file loads all the references set in Settings.php. It also loads various other parts of the theme
-- **classes/KWP/Theme/\*.php** These are all of the classes for the theme. Each class handles a different aspect of functionality, keeping everything modular and organized
-
-## Other important notes
-
-- **acf_json folder** ACF provides functionality out of the box such that if there is an acf_json folder specified in the theme, data releated to any fields or field groups will be stored there as well as the website. More info here <https://www.advancedcustomfields.com/resources/local-json/>. Although this is helpful during development, once the necessary fields have been established and staging/production servers have been set up, this folder should be deleted.
-
-  The fields should be loaded via PHP and specified in the `inc/acf_field_groups` folder. There is a `readme.md` file in that folder that can be referred to for more info. Loading via PHP avoids confusion as to where fields have been specified (production, staging, local, etc) and prevents them from being manipulated in the WP admin.
-- **inc folder** This folder contains various sample post types, taxonomies, acf_fields, and acf blocks. These can be adjusted, duplicated, or deleted.
-- **class autoloader** This is the code that auto loads the classes in the `classes` folder. There is usually no need to touch this file
-- **sass compilation** The default Underscores sass/css folder structure has been adjusted slightly. Sass files are stored in `/sass` and they complile into `/css`

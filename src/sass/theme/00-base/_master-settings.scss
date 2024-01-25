@@ -23,9 +23,4 @@ $radius-100: 100%;
 // ++++++++++ Global Default Transition ==================================
 // Change this to affect the transition style and timing of most things (some elements transition differently)
 
-$default-transition: all 0.2s ease-in-out;
-
-/* ++++++++++ Outline Styles ================================== */
-
-$outline-offset: 0.2em;
-$outline-styles: solid 2px inherit;
+$default-transition: var(--wp--custom--transition--default);

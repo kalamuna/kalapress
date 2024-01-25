@@ -14,20 +14,23 @@
 namespace KLPTheme\Core;
 
 use KLPTheme\Core\Engine\Container;
-use KLPTheme\Core\Engine\HandleThemeSetup;
 use KLPTheme\Config\AssetsConfig;
 use KLPTheme\Config\BlocksConfig;
-use KLPTheme\Core\Engine\HandleAssets;
-use KLPTheme\Core\Engine\HandleRegisterBlocks;
 use KLPTheme\Config\PostTypesConfig;
-use KLPTheme\Core\Engine\HandleBuildArtifacts;
-use KLPTheme\Core\Engine\HandlePostTypes;
 use KLPTheme\Config\TaxonomiesConfig;
+use KLPTheme\Config\BlockStylesConfig;
+use KLPTheme\Core\Engine\HandleAssets;
+use KLPTheme\Core\Engine\HandlePostTypes;
 use KLPTheme\Core\Engine\HandleTaxonomies;
-use KLPTheme\Core\Engine\TemplateFunctions;
+use KLPTheme\Core\Engine\HandleThemeSetup;
 use KLPTheme\Config\BlockCategoriesConfig;
+use KLPTheme\Config\IncludedFunctionsConfig;
+use KLPTheme\Core\Engine\HandleBuildArtifacts;
+use KLPTheme\Core\Engine\HandleRegisterBlockStyles;
+use KLPTheme\Core\Engine\HandleRegisterBlocks;
 use KLPTheme\Core\Engine\HandleBlockCategories;
 use KLPTheme\Config\BlockPatternCategoriesConfig;
+use KLPTheme\Core\Engine\HandleIncludedFunctions;
 use KLPTheme\Core\Engine\HandleBlockPatternCategories;
 
 /**
@@ -90,8 +93,15 @@ class Theme {
 		$container->register( 'HandleBlockPatternCategories', fn( $container ) =>
 			new HandleBlockPatternCategories( $container->get( 'BlockPatternCategoriesConfig' ) ) );
 
-		// Register other services
-		$container->register( 'TemplateFunctions', TemplateFunctions::class);
+		$container->register( 'IncludedFunctionsConfig', IncludedFunctionsConfig::class);
+		$container->register( 'HandleIncludedFunctions', fn( $container ) =>
+			new HandleIncludedFunctions( $container->get( 'IncludedFunctionsConfig' ) ) );
+
+		$container->register( 'BlockStylesConfig', BlockStylesConfig::class);
+		$container->register( 'HandleRegisterBlockStyles', fn( $container ) =>
+			new HandleRegisterBlockStyles( $container->get( 'BlockStylesConfig' ) ) );
+
+		// Register other services that don't require configurations
 		$container->register( 'HandleThemeSetup', HandleThemeSetup::class);
 
 		// Run services
@@ -99,10 +109,11 @@ class Theme {
 		$container->run( 'HandlePostTypes' );
 		$container->run( 'HandleTaxonomies' );
 		$container->run( 'HandleThemeSetup' );
-		$container->run( 'TemplateFunctions' );
 		$container->run( 'HandleRegisterBlocks' );
 		$container->run( 'HandleBuildArtifacts' );
 		$container->run( 'HandleBlockCategories' );
-		$container->run( 'HandleBlockPatternCategories' );
+		$container->run( 'HandleIncludedFunctions' );
+		$container->run( 'HandleRegisterBlockStyles' );
+		// $container->run( 'HandleBlockPatternCategories' ); //@TODO: after 6.4 this seems to be broken. Investigate.
 	}
 }

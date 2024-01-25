@@ -46,7 +46,7 @@ class HandlePostTypes {
 	 * @return void
 	 */
 	public function __construct( PostTypesConfig $postTypesConfig ) {
-		$this->theme_path        = KLP_DIR;
+		$this->theme_path = KLP_DIR;
 		$this->post_types_config = $postTypesConfig->get_post_types_configuration();
 		$this->hook();
 	}
@@ -69,7 +69,7 @@ class HandlePostTypes {
 	 * @return void
 	 */
 	public function register_post_types() {
-		$directory_path = $this->theme_path . '/inc/post_types/';
+		$directory_path = $this->theme_path . '/inc/post-types/';
 
 		if ( ! is_dir( $directory_path ) ) {
 			Logger::logAndNotice( "Class " . __CLASS__ . ": Directory does not exist: " . $directory_path, 'error' );

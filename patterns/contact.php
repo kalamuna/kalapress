@@ -7,8 +7,6 @@
  * Viewport Width: 1412
  */
 
-namespace KLPTheme;
-
 ?>
 <!-- wp:columns {"style":{"spacing":{"margin":{"top":"var:preset|spacing|small","bottom":"var:preset|spacing|small"}}}} -->
 <div class="wp-block-columns"

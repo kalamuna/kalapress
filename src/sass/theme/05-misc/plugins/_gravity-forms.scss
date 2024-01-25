@@ -47,8 +47,7 @@
 
     &:focus,
     &:focus-visible {
-      outline: $outline-styles;
-      outline-offset: $outline-offset;
+      @include focus-style;
     }
   }
 
@@ -78,9 +77,10 @@
       -moz-appearance: none;
       appearance: none;
       padding-right: 1.7em;
-      outline-offset: .2em;
+      @include focus-style;
       position: relative;
       background: transparent;
+      width: 100% !important;
     }
   }
 
@@ -135,7 +135,7 @@
         // Use the before element to create the box.
         &::before {
           border: 2px solid color(contrast);
-          background: var(--color-grey-100);
+          background: color(grey-00);
           border-radius: 0.25em;
           content: "";
           height: 1.5em;
@@ -152,8 +152,8 @@
           height: 0.5em;
           width: 1em;
           transform: rotate(-45deg);
-          border-bottom: 0.18em solid var(--color-grey-100);
-          border-left: 0.18em solid var(--color-grey-100);
+          border-bottom: 0.18em solid color(grey-00);
+          border-left: 0.18em solid color(grey-00);
           position: absolute;
           left: 0.25em;
           top: 0.35em;
@@ -194,7 +194,7 @@
         // The before element holds the empty radio button circle.
         &::before {
           border: 2px solid color(contrast);
-          background: color(grey-100);
+          background: color(grey-00);
           content: "";
           position: absolute;
           top: 0;
@@ -297,35 +297,35 @@
 	}
 
 	.gform_fields .gfield .gfield_label {
-		color: color(grey-100);
+		color: color(grey-00);
 		font-size: var(--wp--preset--font-size--medium);
 		font-weight: var(--wp--custom--font-weight--bold);
 		line-height: rem(35);
 		margin-bottom: 1rem;
 
 		.gfield_required {
-			color: color(primary-60);
+			color: color(primary-40);
 		}
 	}
 
 	.gfield input.large,
 	.gfield select.large {
 		background-color: transparent;
-		border-color: color(grey-100);
-		color: color(grey-100) !important;
+		border-color: color(grey-00);
+		color: color(grey-00) !important;
 		font-size: var(--wp--preset--font-size--base);
 	}
 
 	.gform_footer input[type="submit"] {
-		background-color: color(primary-40);
-		border-color:  color(primary-40);
-		color: color(grey-100);
+		background-color: color(primary-60);
+		border-color:  color(primary-60);
+		color: color(grey-00);
 		font-size: var(--wp--preset--font-size--base);
 		padding: 1rem;
 
 		&:hover {
-			background-color: color(primary-40) !important;
-			border-color: color(grey-100);
+			background-color: color(primary-60) !important;
+			border-color: color(grey-00);
 			cursor: pointer;
 		}
 	}

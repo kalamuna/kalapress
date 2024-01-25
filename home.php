@@ -8,14 +8,14 @@
  * @package kalapress
  */
 
-namespace KLPTheme;
+use function KLPTheme\display_breadcrumbs;
 
 get_header();
 ?>
 
 <main id="main-content">
 	<div class="layout-container">
-		<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+		<?php display_breadcrumbs(); ?>
 	</div>
 
 	<!-- The hero block is built from WP's Cover block. -->

@@ -15,7 +15,7 @@
     transform: rotate(0deg);
     transition: 0.5s ease-in-out;
     cursor: pointer;
-    outline-offset: 0.25rem;
+    @include focus-style;
 
 		/* Hide the default details arrow. */
 		&::-webkit-details-marker {

@@ -34,41 +34,99 @@ $debug-blue: rgb(0, 0, 160);
  */
 :root {
 
-  /* Primary palette  ==================================================== */
+// Primary palette  ====================================================
+
   --color-base: #{$brand-base};
   --color-contrast: #{$brand-contrast};
   --color-primary: #{$brand-primary};
+  
+  /* Primary */
+  @for $i from 0 through 10 {
+    $color: $brand-primary;
+    /* generate colors from light to dark. */
+    $val: if($i == 5, $color, if($i < 5, lighten($color, abs($i - 5) * 10%), darken($color, ($i - 5) * 10%)));
+    
+    /* assign values from 00 to 100 */
+    --color-primary-#{if($i == 0, '00', $i * 10)}: #{$val};
+  }
+  
   --color-secondary: #{$brand-secondary};
+
+  /* Secondary */
+  @for $i from 0 through 10 {
+    $color: $brand-secondary;
+    /* generate colors from light to dark. */
+    $val: if($i == 5, $color, if($i < 5, lighten($color, abs($i - 5) * 10%), darken($color, ($i - 5) * 10%)));
+    
+    /* assign values from 00 to 100 */
+    --color-secondary-#{if($i == 0, '00', $i * 10)}: #{$val};
+  }
+
   --color-tertiary: #{$brand-tertiary};
   --color-quartary: #{$brand-quartary};
   --color-quinary:  #{$brand-quinary};
   --color-senary:   #{$brand-senary};
 
-  /* Loop to generate & assign colors with light and dark values. */
+
+// @accent colors palette ================================================
+
+  /* Debug red */
+  --color-debug-red: #{$debug-red};
+
   @for $i from 0 through 10 {
+    $color: $debug-red;
+    /* generate colors from light to dark. */
+    $val: if($i == 5, $color, if($i < 5, lighten($color, abs($i - 5) * 10%), darken($color, ($i - 5) * 10%)));
+    
+    /* assign values from 00 to 100 */
+    --color-debug-red-#{if($i == 0, '00', $i * 10)}: #{$val};
+  }
 
-    /* Generate the color values from light to dark. */
-    $primary-val: if($i == 5, $brand-primary, if($i < 5, darken($brand-primary, abs($i - 5) * 10%), lighten($brand-primary, ($i - 5) * 10%)));
-    $secondary-val: if($i == 5, $brand-secondary, if($i < 5, darken($brand-secondary, abs($i - 5) * 10%), lighten($brand-secondary, ($i - 5) * 10%)));
-    $grey-val: if($i == 5, $grey, if($i < 5, darken($grey, abs($i - 5) * 10%), lighten($grey, ($i - 5) * 10%)));
-    $debug-red-val: if($i == 5, $debug-red, if($i < 5, darken($debug-red, abs($i - 5) * 10%), lighten($debug-red, ($i - 5) * 10%)));
-    $debug-yellow-val: if($i == 5, $debug-yellow, if($i < 5, darken($debug-yellow, abs($i - 5) * 10%), lighten($debug-yellow, ($i - 5) * 10%)));
-    $debug-green-val: if($i == 5, $debug-green, if($i < 5, darken($debug-green, abs($i - 5) * 10%), lighten($debug-green, ($i - 5) * 10%)));
-    $debug-blue-val: if($i == 5, $debug-blue, if($i < 5, darken($debug-blue, abs($i - 5) * 10%), lighten($debug-blue, ($i - 5) * 10%)));
+  /* Debug yellow */
+  --color-debug-yellow: #{$debug-yellow};
 
-    /* Assign the values from 00 to 100 to the CSS variables. */
-    // @primary palette  ====================================================
-    --color-primary-#{if($i == 0, '00', $i * 10)}: #{$primary-val};
-    --color-secondary-#{if($i == 0, '00', $i * 10)}: #{$secondary-val};
+  @for $i from 0 through 10 {
+    $color: $debug-yellow;
+    /* generate colors from light to dark. */
+    $val: if($i == 5, $color, if($i < 5, lighten($color, abs($i - 5) * 10%), darken($color, ($i - 5) * 10%)));
+    
+    /* assign values from 00 to 100 */
+    --color-debug-yellow-#{if($i == 0, '00', $i * 10)}: #{$val};
+  }
+  
+  /* Debug green */
+  --color-debug-green: #{$debug-green};
 
-    // @greyscale palette  ===================================================
-    --color-grey-#{if($i == 0, '00', $i * 10)}: #{$grey-val};
+  @for $i from 0 through 10 {
+    $color: $debug-green;
+    /* generate colors from light to dark. */
+    $val: if($i == 5, $color, if($i < 5, lighten($color, abs($i - 5) * 10%), darken($color, ($i - 5) * 10%)));
+    
+    /* assign values from 00 to 100 */
+    --color-debug-green-#{if($i == 0, '00', $i * 10)}: #{$val};
+  }
 
-    // @accent colors palette ================================================
-    --color-debug-red-#{if($i == 0, '00', $i * 10)}: #{$debug-red-val};
-    --color-debug-yellow-#{if($i == 0, '00', $i * 10)}: #{$debug-yellow-val};
-    --color-debug-green-#{if($i == 0, '00', $i * 10)}: #{$debug-green-val};
-    --color-debug-blue-#{if($i == 0, '00', $i * 10)}: #{$debug-blue-val};
+  /* Debug blue */
+  --color-debug-blue: #{$debug-blue};
+
+  @for $i from 0 through 10 {
+    $color: $debug-blue;
+    /* generate colors from light to dark. */
+    $val: if($i == 5, $color, if($i < 5, lighten($color, abs($i - 5) * 10%), darken($color, ($i - 5) * 10%)));
+    
+    /* assign values from 00 to 100 */
+    --color-debug-blue-#{if($i == 0, '00', $i * 10)}: #{$val};
+  }
+
+// @greyscale palette  ===================================================
+  
+  @for $i from 0 through 10 {
+    $color: $grey;
+    /* generate colors from light to dark. */
+    $val: if($i == 5, $color, if($i < 5, lighten($color, abs($i - 5) * 10%), darken($color, ($i - 5) * 10%)));
+    
+    /* assign values from 00 to 100 */
+    --color-grey-#{if($i == 0, '00', $i * 10)}: #{$val};
   }
 }
 

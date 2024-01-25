@@ -5,9 +5,7 @@
 
   // Header Bar variables.
   const flyoutNavContainer = document.querySelector( '.nav-header--flyout__container' );
-  const flyoutNavContainerDetails = document.querySelector(
-    '.nav-header--flyout__container details',
-  );
+  const flyoutNavContainerDetails = document.querySelector('.nav-header--flyout__container details');
 
   // Function to remove the open class & change the aria-expanded attr.
   const closeNav = () => {
@@ -73,19 +71,19 @@
 
   // Toggle the Navigation sub menus.
   const menuSubmenus = document.querySelectorAll(
-    '.nav-header--primary ul summary, .nav-header--eyebrow ul summary',
+    '.nav-header--primary ul summary',
   );
 
   menuSubmenus.forEach( ( menuSummary ) => {
     const details = menuSummary.closest(
-      '.nav-header--primary ul li details, .nav-header--eyebrow ul li details',
+      '.nav-header--primary ul li details',
     );
     const menuLinks = menuSummary.closest(
-      '.nav-header--primary .menu__item--parent, .nav-header--eyebrow .menu__item--parent',
+      '.nav-header--primary .menu__item--parent',
     );
     const detailsDropdowns = [
       ...document.querySelectorAll(
-        '.nav-header--primary .menu details, .nav-header--eyebrow .menu details',
+        '.nav-header--primary .menu details',
       ),
     ];
 
@@ -130,14 +128,4 @@
       closeSubmenu();
     } );
   } );
-
-  // Offset the Eyebrow sub menu from the bar.
-  const eyebrow = document.querySelector( '.nav-header--eyebrow' );
-  const eyebrowSubMenu = document.querySelector( '.nav-header--eyebrow .menu__sub-menu' );
-
-  // Adjust the offset if the window resizes.
-  function handleResize() {
-    eyebrowSubMenu.style.top = eyebrow.offsetHeight + 'px';
-  }
-  window.addEventListener( 'resize', handleResize );
 } )();

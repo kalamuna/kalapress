@@ -7,8 +7,6 @@
  * @package kalapress
  */
 
-namespace KLPTheme;
-
 ?>
 
 <section class="no-results not-found">

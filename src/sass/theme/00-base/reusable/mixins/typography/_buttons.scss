@@ -27,7 +27,7 @@
   transition: $default-transition;
 
   // Leave a bit more room between link elements and their focus outine.
-  outline-offset: .2em;
+  @include focus-style;
 
   &:hover {
     text-decoration: none;
@@ -37,13 +37,13 @@
     font-size: inherit;
     max-width: 1.125rem;
     width: 1.125rem;
-    fill: color(grey-100);
+    fill: color(grey-00);
     padding: 0;
     margin-left: space(10);
     align-self: baseline;
 
     path {
-      stroke: color(grey-100);
+      stroke: color(grey-00);
       stroke-width: rem(2);
     }
   }
@@ -54,19 +54,19 @@
   @if $type == primary {
     background-color: var(--wp--preset--color--contrast);
     border-color: var(--wp--preset--color--contrast);
-    color: color(grey-100);
+    color: color(grey-00);
 
 
     &:focus,
     &:visited {
-      color: color(grey-100);
+      color: color(grey-00);
     }
 
     &:active,
     &:hover {
       background-color: var(--wp--preset--color--primary);
       border-color: var(--wp--preset--color--primary);
-      color: color(grey-100);
+      color: color(grey-00);
     }
   }
 
@@ -93,18 +93,18 @@
   @if $type == tertiary {
     background-color: var(--wp--preset--color--primary);
     border-color:  var(--wp--preset--color--primary);
-    color: color(grey-100);
+    color: color(grey-00);
 
     &:focus, 
     &:visited {
-      color: color(grey-100);
+      color: color(grey-00);
     }
 
     &:active,
     &:hover{
-      background-color: color(primary-40);
-      border-color: color(primary-40);
-      color: color(grey-100);
+      background-color: color(primary-60);
+      border-color: color(primary-60);
+      color: color(grey-00);
     }
   }
 }

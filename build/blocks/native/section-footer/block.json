@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "native/section-footer",
+  "title": "Section Footer",
+  "icon": "button",
+  "category": "kalapress",
+  "parent": [
+    "native/card-section"
+  ],
+  "description": "The end of a section.",
+  "keywords": [
+    "section",
+    "footer",
+    "gutenberg"
+  ],
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "attributes": {
+    "id": {
+      "type": "string",
+      "default": "",
+      "attribute": "id"
+    }
+  },
+  "example": {
+    "viewportWidth": 960
+  },
+  "textdomain": "native",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

@@ -1,0 +1,19 @@
+<?php
+/**
+ * This is the template that only is seen in the block editor.
+ * It is very useful when you want to show messages, or other things that are not visible in the front end.
+ * Greatly helps with the user experience.
+ * Remove it if not needed.
+ *
+ * @package KLPTheme\Blocks\{{namespaceSnakeCase}}
+ */
+?>
+
+<div class="acf-label <?php echo $base_class . '__is-preview'; ?>">
+	<p class="description">
+    <strong>This messages is visible only in the editor. <br>And only when in preview mode.</strong><br>
+    <span class="dashicons dashicons-info-outline"></span>
+		We can add instructions, help text, and even how to images!<br>
+		A clever idea would be to put a <a href="<?php echo esc_url( get_dashboard_url() ); ?>">Link to an admin page </a> and/or documentation for this block.
+	</p>
+</div>

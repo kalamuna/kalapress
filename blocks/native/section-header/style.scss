@@ -1,0 +1,30 @@
+/* @style.scss
+* Section Header Styles.
+*
+* These styles are rendered in the frontend and editor.
+*
+*/
+
+.section-header {
+  margin-block-end: 2rem;
+  max-width: 55rem;
+  width: auto;
+
+  &--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  &--right {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}

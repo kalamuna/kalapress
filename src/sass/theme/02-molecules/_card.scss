@@ -2,6 +2,7 @@
   background-color: var(--wp--preset--color--base);
   margin-block-start: 0rem;
   height: 100%;
+  max-width: 100%;
   position: relative;
   box-shadow: var(--wp--custom--box-shadow--card);
   transition: $default-transition;
@@ -32,19 +33,17 @@
   }
 
   &__contents {
-    height: 100%;
-    overflow: hidden;
   }
 
   /* Add padding around the text area. */
   &__text-content {
-    position: relative;
+    margin-block-start: 0;
     padding: var(--wp--preset--spacing--x-small);
   }
 
   /* Remove the default margin above the h3 . */
   h3 {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   /* The meta data that contains info like category & date. */
@@ -70,10 +69,10 @@
   }
 
   /* Center and crop the image within a container. */
-  &__media {
+  &__media,
+  &__media.wp-block-post-featured-image {
     overflow: hidden;
-    margin-top: 0;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
+    padding-top: 60%; // 3:5 aspect ratio
     position: relative;
 
     img {
@@ -83,7 +82,14 @@
       height: 100%;
       object-position: center;
       object-fit: cover;
+      transition: all 0.2s ease-in-out;
+      transform: scale(1.01);
     }
+  
+  // Zoom in the image on hover.
+  &:hover .card__media img {
+    transform: scale(1.04);
+  }
   }
 }
 

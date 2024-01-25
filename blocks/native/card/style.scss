@@ -1,0 +1,205 @@
+/* @style.scss
+* Card Styles.
+*
+* These styles are rendered in the frontend and editor.
+*
+*/
+
+/* SCSS Variables */
+$m-break: 56.25em;
+$l-break: 75em;
+
+/* Override the default card styles in the theme. */
+.cards-grid .card {
+	background-color: var(--card-background-color) !important;
+	border-radius: var(--border-radius);
+	padding: var(--card-padding);
+	margin-block-start: 0rem;
+	height: 100%;
+	max-width: 100%;
+	position: relative;
+	box-shadow: var(--wp--custom--box-shadow--card);
+	transition: all 0.2s ease-in-out;
+
+  &__contents {
+    display: flex;
+    flex-direction: column;
+  }
+
+	/* Add padding around the text area. */
+	&__text-content {
+    order: 2;
+		border-top: none;
+		padding: var(--card-content-padding) !important;
+		color: var(--card-text-color) !important;
+	}
+
+	h3 {
+		color: var(--card-text-color) !important;
+		margin-block-end: 0.25em;
+	} 
+
+  p a {
+    text-underline-offset: 0.25rem;
+    text-decoration: underline;
+  }
+
+	/* Center and crop the image within a container. */
+	&__media {
+		border-radius: var(--border-radius) var(--border-radius) 0 0;
+		overflow: hidden;
+		padding-top: 60%; // 3:5 aspect ratio
+		position: relative;
+    order: 1;
+
+		img {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			object-position: center;
+			object-fit: cover;
+			transition: all 0.2s ease-in-out;
+			transform: scale(1.01);
+		}
+	} 
+	
+	// Zoom in the image on hover.
+	&:hover .card__media img {
+		transform: scale(1.04);
+	}
+
+  /**
+  *  InnerBlock styles for Core Blocks.
+  */
+
+  // Add an arrow to the details element.
+  .wp-block-details {
+    padding: 0;
+
+    summary {
+      cursor: pointer;
+      /* Hide the default details arrow. */
+      &::-webkit-details-marker {
+        display: none;
+      }
+      
+      // Use a line arrow to replace the default disclosure arrow.
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0.45em;
+        height: 0.45em;
+        border-bottom: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        transform: rotate(45deg);
+        position: relative;
+        top: -0.25em;
+        left: 1em;
+        opacity: 1;
+      }
+      &:active, &:hover {
+        opacity: 0.75;
+      }
+    }
+
+    &[open]>summary {
+      &::after {
+        transform: rotate(225deg);
+        top: 0;
+      }
+    }
+  }
+}
+
+/**
+*  Block Style Variations.
+*/
+.cards-grid {
+	/* Cover Style - Displays the text overlayed on top of the image. */
+	&.is-style-cover {
+
+		.card {
+			&__link {
+				display: block;
+			}
+
+			/* Absolute position the text content so that it sits ontop of the image. */
+			&__text-content {
+				background: none;
+				height: 100%;
+				padding: var(--card-content-padding);
+				max-width: 100%;
+				width: 100%;
+				z-index: 2;
+				position: relative;
+				top: 0;
+			}
+
+			&__media {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				padding-top: 0;
+				border-radius: var(--border-radius);
+
+				/* Add image overlays to make the text easier to read. */
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 2;
+				}
+
+				/* Add a color overlay ontop of the image. */
+				&::before {
+					background: var(--card-background-color);
+					filter: opacity(30%);
+				}
+
+				/* Add a gradient ontop of the image. */
+				&::after {
+					background: linear-gradient(180deg, transparent 0%, var(--card-background-color) 80%);
+				}
+			} 
+		}
+	}
+
+	/* Horizontal Style - Displays the text and image side by side. */
+	&.is-style-horizontal {
+
+		.card-section__content {
+			grid-template-columns: repeat(1, 1fr);
+
+			// On larger screeens, display content in columns.
+			@media only screen and (min-width: $l-break) {
+				grid-template-columns: repeat(var(--card-columns), 1fr);
+			}
+		}
+
+		.card {
+			&__media {
+				border-radius: var(--border-radius) var(--border-radius) 0 0;
+
+				@media only screen and (min-width: $m-break) {
+					border-radius: var(--border-radius) 0 0 var(--border-radius);
+				}
+			}
+			&__contents {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+				
+				@media only screen and (min-width: $m-break) {
+					grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+				}
+			}
+		}
+	} 
+}

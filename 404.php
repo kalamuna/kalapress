@@ -7,8 +7,6 @@
  * @package kalapress
  */
 
-namespace KLPTheme;
-
 get_header();
 ?>
 

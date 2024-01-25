@@ -1,0 +1,15 @@
+/**
+ * This is our block's entry point for the editor.
+ * Keep it clean and do stuff in other files. Then import them here.
+ * If you have the script that is only for the front-end, then use the viewScript hadle in block.json
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+import './{{slug}}.scss';
+
+document.addEventListener('DOMContentLoaded', () => {
+	// Init ACF's preview.
+	if (window.acf) {
+		console.log( 'Hello from {{name}}' );
+	}
+});

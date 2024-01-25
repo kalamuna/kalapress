@@ -1,20 +1,5 @@
-
-
-// ++++++++++ Button Class Use
-// .wp-block-buttons {
-// 	gap: 0 !important;
-// }
-
-
-// ===== Btn classes applied are likely in the editor and should be inline blocks
-
-a[class^="btn-"] {
-  display: inline-flex;
-}
-
 // ===== Primary
 
-.btn-primary,
 .wp-block-button .wp-block-button__link,
 .wp-block-button.is-style-fill .wp-block-button__link {
   @include btn();
@@ -22,14 +7,12 @@ a[class^="btn-"] {
 
 // ===== Secondary (Outline)
 
-.btn-secondary,
 .wp-block-button.is-style-outline .wp-block-button__link {
   @include btn(secondary);
 }
 
-// ===== Tertiary
+// ===== Tertiary (Alternate)
 
-.btn-tertiary,
 .wp-block-button.is-style-alternate .wp-block-button__link {
   @include btn(tertiary);
 }
