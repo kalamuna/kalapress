@@ -16,8 +16,6 @@
  * return early without loading the comments.
  */
 
-namespace KLPTheme;
-
 if ( post_password_required() ) {
 	return;
 }
@@ -55,7 +53,7 @@ if ( post_password_required() ) {
 			<?php
 			wp_list_comments(
 				array(
-					'style'      => 'ol',
+					'style' => 'ol',
 					'short_ping' => true,
 				)
 			);

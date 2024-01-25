@@ -1,0 +1,23 @@
+<?php
+/**
+ * This file contains the logic for the {{slug}} block.
+ * Put all the non-presentational logic here to adhere to separation of concerns principle.
+ * This file should handle the business logic, such as setting up block attributes, handling conditions,
+ * and preparing any data required by the render template.
+ *
+ * @package KLPTheme\Blocks\{{namespaceSnakeCase}}
+ */
+
+ use function KLPTheme\acf_handle_get_block_wrapper_attributes;
+
+// Get the block's base class from block.json.
+$base_class = isset( $block['baseClass'] ) ? $block['baseClass'] : '{{slug}}';
+
+// Example usage of acf_handle_get_block_wrapper_attributes().
+$disabled = isset( $block['hasTestBoolAttribute'] ) ? $block['hasTestBoolAttribute'] : false;
+
+$block_wrapper_attrs = acf_handle_get_block_wrapper_attributes( $block, $is_preview, [
+    'class' => $base_class,
+    'data-test-attribute' => 'test',
+    'disabled' => $disabled
+] );

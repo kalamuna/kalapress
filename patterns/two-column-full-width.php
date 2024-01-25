@@ -7,8 +7,6 @@
  * Block types: core/featured
  */
 
-namespace KLPTheme;
-
 ?>
 <!-- wp:cover {"url":"<?php echo get_template_directory_uri(); ?>/src/images/placeholders/placeholder-banner.png","id":342,"dimRatio":0,"focalPoint":{"x":0,"y":1},"minHeight":571,"contentPosition":"center center","templateLock":"contentOnly","align":"full","className":"has-quartary-background-color has-background","style":{"spacing":{"margin":{"top":"var:preset|spacing|medium","bottom":"var:preset|spacing|medium"}}}} -->
 <div class="wp-block-cover alignfull has-quartary-background-color has-background"

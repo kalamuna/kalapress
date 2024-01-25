@@ -11,12 +11,12 @@
   &__top-container {
     padding-top: 2rem;
     background-color: var(--wp--preset--color--contrast);
-    color: color(grey-100);
+    color: color(grey-00);
 
     h2,
     a,
     p {
-      color: color(grey-100);
+      color: color(grey-00);
     }
 
     h2 {
@@ -37,7 +37,7 @@
             background-image: none;
             border-bottom: solid 2px transparent;
             margin-bottom: 2rem;
-            color: color(grey-100);
+            color: color(grey-00);
             font-weight: var(--wp--custom--font-weight--medium);
             padding-bottom: 0.2rem;
             text-decoration: none;
@@ -149,14 +149,14 @@
   &__bottom-container {
     // padding: 1rem 0;
     background-color: var(--wp--preset--color--contrast);
-    color: color(grey-100);
+    color: color(grey-00);
     font-size: var(--wp--preset--font-size--small);
     font-weight: var(--wp--custom--font-weight--medium);
 
 
     a {
       background-image: none;
-      color: color(grey-100);
+      color: color(grey-00);
       text-underline-offset: 0.5rem;
       text-decoration: underline;
 

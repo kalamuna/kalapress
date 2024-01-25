@@ -1,1 +1,1 @@
-!function(){"use strict";console.info("%c✨➡","font-size: large;","sample-faqs-editor.js")}();
+(()=>{"use strict";console.info("%c✨➡","font-size: large;","sample-faqs-editor.js")})();

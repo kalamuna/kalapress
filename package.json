@@ -1,6 +1,5 @@
 {
   "name": "kalapress",
-  "version": "1.0.0",
   "author": "Kalamuna",
   "description": "A WordPress starter theme",
   "keywords": [
@@ -68,8 +67,8 @@
     "format:blocks": "wp-scripts format ./blocks",
     "format:theme": "wp-scripts format ./src",
     "format": "wp-scripts format ./src ./blocks",
-    "add:block:dynamic": "if [ \"$(basename $(pwd))\" != \"native\" ]; then cd blocks/native; fi && npx @wordpress/create-block --namespace native --variant dynamic --no-plugin",
-    "add:block:static": "if [ \"$(basename $(pwd))\" != \"native\" ]; then cd blocks/native; fi && npx @wordpress/create-block --namespace native --variant static --no-plugin",
-    "add:block:acf": "if [ \"$(basename $(pwd))\" != \"acf\" ]; then cd blocks/acf; fi && npx @wordpress/create-block --namespace acf --variant static --no-plugin"
+    "scaffold:block:dynamic": "if [ \"$(basename $(pwd))\" != \"native\" ]; then cd blocks/native; fi && npx @wordpress/create-block --namespace native --variant dynamic --no-plugin",
+    "scaffold:block:static": "if [ \"$(basename $(pwd))\" != \"native\" ]; then cd blocks/native; fi && npx @wordpress/create-block --namespace native --variant static --no-plugin",
+    "scaffold:block:acf": "node bin/create-block-wrapper.js"
   }
 }

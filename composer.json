@@ -1,9 +1,17 @@
 {
   "name": "kalamuna/kalapress",
+  "description": "Kalamuna's starter theme for WordPress projects.",
   "type": "wordpress-theme",
   "keywords": [
     "WordPress",
-    "Themes"
+    "Themes",
+    "Starter Theme",
+    "Kalamuna",
+    "KalaPress",
+    "KalaPress Theme",
+    "WordPress Scaffold",
+    "WordPress Starter Theme",
+    "WordPress Boilerplate"
   ],
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
@@ -28,7 +36,7 @@
       "KLPTheme\\Core\\": "Core/",
       "KLPTheme\\Core\\Engine\\": "Core/Engine/",
       "KLPTheme\\Core\\Util\\": "Core/Util/",
-      "KLPTheme\\Config\\": "inc/Config"
+      "KLPTheme\\Config\\": "Config/"
     }
   }
 }

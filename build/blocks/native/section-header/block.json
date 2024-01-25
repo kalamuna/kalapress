@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "native/section-header",
+  "title": "Section Header",
+  "icon": "heading",
+  "category": "kalapress",
+  "parent": [
+    "native/card-section"
+  ],
+  "description": "The beginning of a section. This typically contains a heading and description.",
+  "keywords": [
+    "section",
+    "header",
+    "gutenberg"
+  ],
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "attributes": {
+    "id": {
+      "type": "string",
+      "default": "",
+      "attribute": "id"
+    },
+    "sectionHeading": {
+      "type": "string",
+      "default": ""
+    },
+    "hideSectionHeading": {
+      "type": "boolean",
+      "default": false
+    },
+    "alignment": {
+      "type": "string",
+      "default": "none"
+    }
+  },
+  "example": {
+    "viewportWidth": 960
+  },
+  "textdomain": "native",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

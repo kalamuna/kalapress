@@ -1,0 +1,26 @@
+
+/* @editor.scss
+* Card Editor Styles.
+*
+* These styles are rendered in editor.
+*
+*/
+
+// Make the linkpopover elements inline.
+.block-editor-url-popover__row {
+  form {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+// Position and style the Notice warning icon.
+.components-snackbar .components-snackbar__icon {
+  left: 1rem;
+  top: 1rem;
+  width: 1.15rem;
+
+  svg {
+    fill: #fff;
+  }
+}

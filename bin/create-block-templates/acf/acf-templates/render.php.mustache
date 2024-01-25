@@ -1,0 +1,26 @@
+<?php
+/**
+ * The render template for the {{slug}} block.
+ * This file should focus on HTML markup and the display of data.
+ *
+ * @package KLPTheme\Blocks\{{namespaceSnakeCase}}
+ *
+ * @param   array $block The block settings and attributes.
+ * @param   string $content The block inner HTML (empty).
+ * @param   bool $is_preview True during backend preview render.
+ * @param   int $post_id The post ID the block is rendering content against.
+ * @param   array $context The context provided to the block by the post or its parent block.
+ */
+
+file_exists( __DIR__ . '/logic.php' ) ? include_once 'logic.php' : null;
+$title = $block['title'] ? $block['title'] : 'Title Goes Here';
+$description = $block['description'] ? $block['description'] : 'Description Goes Here';
+?>
+
+<div <?php echo $block_wrapper_attrs; ?>>
+
+    <?php $is_preview && file_exists( __DIR__ . '/is-preview.php' ) ? include_once 'is-preview.php' : null; ?>
+
+    <h2 class="<?php echo $base_class . '__heading-title'; ?>"><?php echo esc_html_e( $title ); ?></h2>
+    <p class="<?php echo $base_class . '__description'; ?>"><?php echo esc_html_e( $description ); ?></p>
+</div>

@@ -1,12 +1,11 @@
-// Block Patterns
-@import "blocks/_general.scss";
-@import "blocks/_cta-footer.scss";
-@import "blocks/_tables.scss";
+// Core Blocks
 @import "blocks/_media-text.scss";
 @import "blocks/_query.scss";
-@import "blocks/_query--grid.scss";
 
-// Heroes
+// Block Patterns
+@import "patterns/_cta-footer.scss";
+
+// Heroes/Banners
 @import "heroes/_hero.scss";
 @import "heroes/_hero--single-post.scss";
 

@@ -1,0 +1,25 @@
+/* @style.scss
+* Cards Grid
+*
+* These styles are rendered in the frontend and editor.
+* Style variations are located in card.scss
+*
+*/
+
+/* SCSS Variables */
+// Should probably create block settings for these too..
+$m-break: 56.25em;
+$l-break: 75em;
+$column-value: 3; // Set your desired column value
+.cards-grid {
+  display: grid;
+  grid-row-gap: var(--row-gap);
+  grid-column-gap: var(--column-gap);
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+
+  // On larger screens, display content within multiple columns.
+  @media only screen and (min-width: $m-break) {
+    grid-template-columns: repeat(var(--card-columns), 1fr);
+    justify-content: center;
+  }
+}

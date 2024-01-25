@@ -1,0 +1,27 @@
+{{#isWithEditorStyleVariant}}
+/**
+ * The following styles get applied only in the editor.
+ * Be careful not to deviate too much from the default styles.
+ * Replace them with your own styles or remove the file completely.
+ */
+
+/*
+  * This styles only the edit mode. This is definitely an example of
+  * deviating too much from the default styles!!
+  * It best works when you want to style a message field or an instruction for the user.
+  */
+[data-type="{{namespace}}/{{slug}}"] .acf-block-fields.acf-fields {
+  border: 1px solid var(--wp--preset--color--vivid-cyan-blue);
+  border-radius: 0.25rem;
+  background: var(--wp--preset--gradient--pale-ocean);
+}
+
+/*
+  * This styles only the preview mode. Again be careful!
+  * It best works when you want to style is_preview.
+  */
+.kalapress-{{slug}} {
+  padding: 2rem;
+  box-shadow: 0 0 4px 2px var(--wp--preset--color--cyan-bluish-gray);
+}
+{{/isWithEditorStyleVariant}}

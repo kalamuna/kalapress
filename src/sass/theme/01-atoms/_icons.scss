@@ -9,36 +9,3 @@ svg {
   width: 1em;
   vertical-align: baseline;
 }
-
-
-// Make social buttons round with centered icons.
-.social-button {
-  @include btn;
-  background: var(--color-grey-30);
-  border-color: var(--color-grey-30);
-  color: var(--color-white);
-  display: flex;
-  align-items: center;
-  width: 2em;
-  height: 2em;
-  padding: .5em;
-  border-radius: 50%;
-  &:hover {
-    color: var(--color-white);
-    background: var(--color-maroon);
-    border-color: var(--color-maroon);
-  }
-
-  // Use facebook brand blue for hover state.
-  &--facebook:hover {
-    background: #266EDA;
-    border-color: #266EDA;
-  }
-
-  // Use twitter brand blue for hover state.
-  &--twitter:hover {
-    background: #22B3F1;
-    border-color: #22B3F1;
-  }
-
-}

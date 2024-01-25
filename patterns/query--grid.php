@@ -7,8 +7,6 @@
  * Block types: core/featured
  */
 
-namespace KLPTheme;
-
 ?>
 <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|medium","bottom":"var:preset|spacing|medium"}}},"className":"query query\u002d\u002dgrid"} -->
 <div class="wp-block-group query query--grid"

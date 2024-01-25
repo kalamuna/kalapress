@@ -1,9 +1,5 @@
-.query {
+.wp-block-query {
   /* Spacing above and below the query group. */
-  padding-top: var(--wp--preset--spacing--medium);
-  padding-bottom: var(--wp--preset--spacing--medium);
-
-  &__footer {
-    margin-top: var(--wp--preset--spacing--small);
-  }
+  padding-block-start: var(--wp--preset--spacing--medium);
+  padding-block-end: var(--wp--preset--spacing--medium);
 }

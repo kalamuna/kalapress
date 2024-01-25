@@ -7,8 +7,6 @@
  * Block types: core/featured
  */
 
-namespace KLPTheme;
-
 ?>
 
 <!-- wp:media-text {"align":"full","mediaPosition":"right","mediaId":11037,"mediaLink":"<?php echo get_template_directory_uri(); ?>/src/images/placeholders/placeholder-image.jpgg","mediaType":"image","mediaWidth":34,"backgroundColor":"contrast","textColor":"base","className":"cta-footer has-bas-color"} -->

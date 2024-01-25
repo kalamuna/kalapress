@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for the interal page hero.
+ * Template part for the internal page hero.
  *
  * Depending on the template, different variables will be used to
  * pull in the title and/or subtitle.
@@ -8,11 +8,8 @@
  * @package kalapress
  */
 
-namespace KLPTheme;
-
-use KLPTheme\Core\Engine\TemplateTags;
-
-$TemplateTags = new TemplateTags();
+use function KLPTheme\display_breadcrumbs;
+use function KLPTheme\display_posted_on;
 
 // Variables for Single Pages & Posts.
 if ( is_singular() ) {
@@ -24,40 +21,40 @@ if ( is_singular() ) {
 	endif;
 	$hero_subheading = get_field( 'hero_subheading' );
 	$show_hero_image = get_field( 'show_hero_image' ); // hide the hero image if this is selected.
-	$full_src        = get_the_post_thumbnail_url( get_the_ID(), 'hero-banner' );
-	$alt             = get_post_meta( $full_src, '_wp_attachment_image_alt', true );
+	$full_src = get_the_post_thumbnail_url( get_the_ID(), 'hero-banner' );
+	$alt = get_post_meta( $full_src, '_wp_attachment_image_alt', true );
 }
 
 // Variables for Post Archives.
 elseif ( is_post_type_archive() && is_home() ) {
-	$hero_heading    = get_post_type_labels( get_queried_object() )->name;
+	$hero_heading = get_post_type_labels( get_queried_object() )->name;
 	$hero_subheading = get_field( 'hero_subheading' );
 }
 
 // Variables for Taxonomy Templates.
 elseif ( is_tax() ) {
-	$hero_heading    = get_queried_object()->name;
+	$hero_heading = get_queried_object()->name;
 	$hero_subheading = $term->description;
 }
 
 // Variables for Taxonomies.
 elseif ( is_category() ) {
-	$hero_heading    = get_queried_object()->name;
+	$hero_heading = get_queried_object()->name;
 	$hero_subheading = get_field( 'hero_subheading' );
-	$full_src        = get_stylesheet_directory_uri() . '/images/placeholders/placeholder.jpg';
+	$full_src = get_stylesheet_directory_uri() . '/images/placeholders/placeholder.jpg';
 }
 
 // Load values and assign defaults.
 $term = get_queried_object();
-$alt  = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true );
+$alt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true );
 
 
 $hero_subheading = get_field( 'hero_subheading' );
-$show_hero       = get_field( 'show_hero' );
+$show_hero = get_field( 'show_hero' );
 ?>
 
 <div class="layout-container">
-	<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+	<?php display_breadcrumbs(); ?>
 </div>
 
 <?php
@@ -85,7 +82,7 @@ if ( 'post' === get_post_type() && has_post_thumbnail() ) : ?>
 					/* The custom block name */
 					if ( 'acf/author' === $block['blockName'] ) {
 						/* This block has a post object field looking for the Custom Post
-																					Type set to return the ID */
+																																													Type set to return the ID */
 						$author_id = $block['attrs']['data']['author'];
 
 						/* And with that ID we can use regular functions to return data */
@@ -98,7 +95,7 @@ if ( 'post' === get_post_type() && has_post_thumbnail() ) : ?>
 				}
 			endif;
 			?>
-			<?php $TemplateTags->kalapress_posted_on(); ?>
+			<?php display_posted_on(); ?>
 		</div>
 	</div>
 <?php elseif ( ! empty( $show_hero_image ) ) :

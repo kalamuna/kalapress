@@ -6,7 +6,7 @@
 */
 
 .menu {
-  @include unstyled-list;
+  @include reset-list;
   display: flex;
   gap: 2em;
 
@@ -30,7 +30,7 @@
 
     &:active,
     &:hover {
-      color: color(primary-40);
+      color: color(primary-60);
     }
   }
   
@@ -47,9 +47,9 @@
 
   /* Dropdown Styles.  */
   &__sub-menu {
-    @include unstyled-list;
+    @include reset-list;
     flex-direction: column;
-    background: color(grey-100);
+    background: color(base);
     box-shadow: var(--wp--custom--box-shadow--default);
     padding: 0.5em 1em;
 

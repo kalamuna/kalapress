@@ -12,9 +12,6 @@
  *
  * @package kalapress
  */
-
-namespace KLPTheme;
-
 ?>
 
 <?php

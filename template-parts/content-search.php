@@ -7,12 +7,7 @@
  * @package kalapress
  */
 
-namespace KLPTheme;
-
-use KLPTheme\Core\Engine\TemplateTags;
-
-$TemplateTags = new TemplateTags();
-$full_src     = get_the_post_thumbnail_url( get_the_ID(), 'card-thumbnail' );
+$full_src = get_the_post_thumbnail_url( get_the_ID(), 'card-thumbnail' );
 if ( ! get_the_post_thumbnail_url() ) {
 	$full_src = get_stylesheet_directory_uri() . '/images/placeholders/placeholder-image.jpg';
 }

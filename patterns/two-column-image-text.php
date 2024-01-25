@@ -7,11 +7,10 @@
  * Block types: core/featured
  */
 
-namespace KLPTheme;
+$image_url = KLP_URI . 'src/images/placeholders/placeholder-image.jpg';
 
+echo '<!-- wp:media-text {"align":"","mediaPosition":"right","mediaId":177,"mediaLink":"' . $image_url . '","mediaType":"image","mediaWidth":40,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|x-small","top":"var:preset|spacing|x-small"}}},"className":"media-text\u002d\u002dcta"} -->';
 ?>
-
-<!-- wp:media-text {"align":"","mediaPosition":"right","mediaId":177,"mediaLink":"http://kalapresspro.local/wp-content/themes/kalapress-theme/images/placeholders/placeholder-image.jpg","mediaType":"image","mediaWidth":40,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|x-small","top":"var:preset|spacing|x-small"}}},"className":"media-text\u002d\u002dcta"} -->
 <div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile media-text--cta"
 	style="margin-top:var(--wp--preset--spacing--x-small);margin-bottom:var(--wp--preset--spacing--x-small);grid-template-columns:auto 40%">
 	<div class="wp-block-media-text__content"><!-- wp:heading -->
@@ -33,7 +32,7 @@ namespace KLPTheme;
 		<!-- /wp:buttons -->
 	</div>
 	<figure class="wp-block-media-text__media"><img
-			src="<?php echo get_template_directory_uri(); ?>/src/images/placeholders/placeholder-image.jpg" alt=""
+			src="<?php echo KLP_URI; ?>/src/images/placeholders/placeholder-image.jpg" alt=""
 			class="wp-image-177 size-full" /></figure>
 </div>
 <!-- /wp:media-text -->

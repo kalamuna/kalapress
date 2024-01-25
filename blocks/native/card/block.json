@@ -1,0 +1,67 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "native/card",
+	"title": "Card",
+	"icon": "format-aside",
+	"category": "kalapress",
+  "parent": ["native/cards-grid"],
+	"description": "A single card within the Card Grid block.",
+	"keywords": ["card", "gutenberg"],
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"id": {
+			"type": "string",
+			"default": "",
+			"attribute": "id"
+		},
+    "cardLink": {
+			"type": "string",
+			"default": ""
+		},
+    "cardLinkTarget": {
+			"type": "boolean",
+			"default": false
+		},
+    "showImage": {
+      "type": "boolean",
+      "default": true
+    },
+		"imageUrl": {
+			"type": "string",
+      "default": "https://snipboard.io/sqpNQ0.jpg"
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"imageAlignment": {
+			"type": "string",
+			"default": "0% 50%"
+		},
+		"focalPointX": {
+			"type": "number",
+			"default": "0"
+		},
+		"focalPointY": {
+			"type": "number",
+			"default": "0.5"
+		}
+	},
+  "example": {
+    "viewportWidth": 960
+  },
+  "textdomain": "native",
+	"editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

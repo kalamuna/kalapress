@@ -1,31 +1,32 @@
 // +++++++++ Tags Style
 
 @mixin pill {
-	display: block;
+  display: block;
 	font-family: var(--wp--preset--font-family--primary);
-	padding: rem(1) rem(14);
-	border-radius: 100px;
-	text-decoration: none;
-	background: $grey-alt;
-	&:hover,
-	&:focus {
-		background: $grey-light;
-		transition: all .2s;
-		color: $charcoal-dark;
-	}
+  font-weight: var(--wp--custom--font-weight--normal);
+  padding: rem(1) rem(14);
+  border-radius: 100px;
+  text-decoration: none;
+  background: color(grey-20);
+  &:hover,
+  &:focus {
+    background: color(grey-10);
+    transition: all .2s;
+    color: color(grey-90);
+  }
 
-	&:after {
-		display: none;
-	}
+  &:after {
+    display: none;
+  }
 
-	.dark-mode & {
-		color: color(grey-100);
-		background: $charcoal;
-
-		&:hover,
-		&:focus {
-			background: $charcoal-dark;
-			color: color(grey-100);
-		}
-	}
+  .dark-mode & {
+    color: color(grey-00);
+    background: color(grey-80);
+  
+    &:hover,
+    &:focus {
+      background: color(grey-90);
+      color: color(grey-00);
+    }
+  }
 }

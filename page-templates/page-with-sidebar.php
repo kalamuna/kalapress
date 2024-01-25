@@ -5,8 +5,6 @@
  *
  */
 
-namespace KLPTheme;
-
 get_header();
 ?>
 
